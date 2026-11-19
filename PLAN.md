@@ -2,6 +2,12 @@
 
 Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it, commit, push and check that exact remote commit before continuing. Update this document in place.
 
+The shared foundation is integrated at `b75c814ed58987f2b2d81fc0f49dbd5fce71cc26`.
+Its [main CI run](https://github.com/datenfutter/datenfutter/actions/runs/44468409988)
+passed 84 tests and the layout check. Layout reported zero projects and zero
+current posts: this is not production reproduction. The implemented foundation
+does not need to be rebuilt during migration.
+
 **Current status**
 
 | Task | State |
@@ -14,9 +20,9 @@ Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it
 | 5a. Deterministic SVG export | Integrated into main at `7a598899d7e5f294cee524998352f32ee587db84`; remote run `44465866261` passed (65 tests). Six fuel PNGs/four text files remain byte-identical. |
 | 5b. Deterministic output manifests | Integrated into main at `f62a21a5ed2586c6a38f3c79c3579e0a0876e2c8`; remote run `44466237684` passed (66 tests). Complete fuel outputs reproduce; PNG/text unchanged. |
 | 6a. Offline project build command | Integrated into main at `b416fcef216115d0625222af5f03c8acc55d4b10`; remote run `44467081314` passed (73 tests). Private fuel smoke check matches PNG/text. |
-| 6b. Compare builds against current outputs | Implemented; 78 tests pass locally, including missing/extra/changed output failures; the private fuel snapshot passes comparison. Remote verification pending. |
+| 6b. Compare builds against current outputs | Integrated into main at `1a89cf0290adebf19b4d292bd5bed716f87f126f`; remote run `44467501486` passed. Missing, extra and changed files fail without overwriting current outputs. |
 | 7. Current petrol and diesel output sets | Pending; one commit per post. |
-| 8a. Canonical layout check | Pending. |
+| 8a. Canonical layout check | Integrated into main at `b75c814ed58987f2b2d81fc0f49dbd5fce71cc26`; main run `44468409988` passed. Layout validity and production reproduction are separate checks. |
 | 8b. Offline production reproduction in CI | Pending; requires the production inputs. |
 | Other topics and Drive handover/cleanup | Pending. |
 
@@ -61,6 +67,37 @@ Discover projects/posts from specifications. Keep source acquisition separate fr
 
 Keep SVG export and manifest fixes separate. Reuse existing staging and post/language ownership checks. Existing output replacement is per-file; do not describe it as a transactional directory swap.
 
+**Execution order for the remaining migration**
+
+1. Recheck and delete each fully integrated task branch individually. Keep
+   `main` and any branch with unique work. Account for local-only changes before
+   deleting local branches; a missing old checkout is not evidence of a merge.
+2. Inventory the selected inputs and exact source-to-table transformations.
+   Reuse recovered implementation only after independently checking its diff
+   and acceptance gates. Resolve disclosure for the concrete public payload
+   before importing source content or provenance.
+3. Integrate verified raw evidence, then selected tables/specifications as
+   separate changes. A preview from saved tables proves rendering only.
+4. Split preparation changes into source decoding, monthly normalization,
+   baseline/index calculations, composition reconciliation and deterministic
+   serialization. Each change owns a testable behavior. Activate the preparation
+   entry point only when all selected tables reproduce.
+5. Retain one complete post per change. Compare that post independently while
+   other specifications still lack current outputs; run the whole-project
+   comparison only after all intended current posts exist. Never weaken the
+   comparison to make an intermediate migration pass.
+6. Verify preparation in a disposable copy with saved processed tables removed,
+   comparing complete output file sets and bytes. Then require production CI
+   to run preparation and rendering without network access and leave the
+   checkout unchanged. Empty comparisons must fail.
+7. Update current Drive files, verify their exact bytes and links, then remove
+   only enumerated superseded derivatives. Repeat this sequence for one topic
+   at a time; inventory each topic before defining its preparation tasks.
+
+Keep private recovery records and publication decisions outside public status
+updates unless their disclosure is authorized. Update public implementation
+facts independently of a blocked source import.
+
 Preserve the visual system: 1080×1350, cream `#FAF8EF`, navy `#1C2D57` accents, black text, DejaVu Sans, the existing df logo, bold pagination, one descriptive block and the localized date footer. Keep literal source URLs in captions.
 
 **Further migrations**
@@ -79,6 +116,12 @@ Share language-independent work only when the selected evidence/vintages agree. 
 **Push and handover routine**
 
 Inspect the diff, run the task gate, stage explicit paths, commit and push normally. Verify the remote head and CI for that SHA before the next change. Integrate coherent slices into main. Shared renderer/schema/brand changes check every available migrated project. Record remote results in the next ordinary status update; avoid extra commits merely to chase self-referential hashes.
+
+Use one active task branch from current main. After integration, verify the
+resulting main SHA and its CI, then delete the task branch after checking
+ancestry again. If a gate fails, stay on the same task and branch, record the
+failing input/command, and fix it before starting dependent work. Keep local
+checks, remote checks, integration, editorial review and delivery distinct.
 
 Git is the working source for migrated code/specifications/data selection once publication is authorized. Drive remains the working source for unmigrated material and the current delivery view. After a clean checkout and remote checks succeed, update selected Drive files by verified IDs, remove superseded derivatives and update the current index/instructions. Preserve sharing.
 

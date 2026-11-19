@@ -38,3 +38,21 @@ Checks report missing, extra and changed files; they never repair or overwrite
 current posts. `--all` reports and skips projects with no current outputs. A
 comparison with no current outputs fails, so an empty tree cannot masquerade
 as a successful production rebuild.
+
+Run `python -m datenfutter layout` to validate canonical paths and complete
+managed output sets. It reports project and current-post counts separately.
+A valid layout with zero current posts is not a production reproduction check.
+
+## Small verified changes
+
+Start each bounded task on one branch from current main. Inspect the diff and
+run its acceptance gate, then verify the exact pushed commit and its CI before
+integration. Verify main after integration and delete the integrated task
+branch after a fresh ancestry check. Keep failures on the same task branch.
+
+During migration, rendering from saved tables and rebuilding those tables from
+raw evidence are separate gates. Production verification must exclude existing
+processed tables from its disposable preparation workspace, compare complete
+file sets and bytes, and run preparation/rendering offline. The current public
+CI does not yet include that production gate. See [PLAN.md](PLAN.md) for the
+remaining sequence.

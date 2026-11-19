@@ -8,6 +8,8 @@ Read `README.md`, `PLAN.md`, the relevant project README and source register bef
 - Start from a clean, current checkout. Stage explicit paths; do not force-push or commit downloads, caches or credentials.
 - Update PLAN status with the implemented step. Distinguish local checks, remote checks, review and delivery. Do not copy old passing-test claims.
 - Project changes require that project's checks; shared renderer/schema/brand changes require all migrated projects.
+- Keep one active task branch from current main. Verify the integrated main SHA and its CI, then remove only the fully integrated task branch after rechecking ancestry. Fix failed gates on the same task before starting dependent work.
+- Verify raw-to-table preparation in a disposable copy without saved processed tables. Compare full file sets and bytes; keep layout checks and production reproduction distinct.
 
 ## One current state
 
