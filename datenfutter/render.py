@@ -508,7 +508,7 @@ def render_post(spec_path: str | Path, output_dir: str | Path, brand_path: str |
     pages, summaries, exported = [], [], []
     if len(spec['slides']) > 10:
         raise ValueError('Keep a post to at most ten slides in this starter.')
-    style = {'font.family': brand['font'], 'svg.fonttype': 'none', 'axes.unicode_minus': True,
+    style = {'font.family': brand['font'], 'svg.fonttype': 'none', 'svg.hashsalt': 'datenfutter', 'axes.unicode_minus': True,
              'text.parse_math': False}
     destination = out
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -553,7 +553,8 @@ def render_post(spec_path: str | Path, output_dir: str | Path, brand_path: str |
                 for extension in ('png', 'svg'):
                     path = out / f'{index:02d}.{extension}'
                     page.fig.savefig(path, dpi=brand['dpi'], facecolor=brand['colors']['cream'],
-                                     metadata={'Title': spec['slides'][index - 1]['title'].replace('\n', ' ')})
+                                     metadata={'Title': spec['slides'][index - 1]['title'].replace('\n', ' '),
+                                               **({'Date': None} if extension == 'svg' else {})})
                     exported.append(path)
             de = spec.get('locale') == 'de'
             credit = '\n'.join(f"- {s['publisher']}: {s['title']}. {s['url']} ({'abgerufen' if de else 'checked'} {s['retrieved_at']})" for s in sources)

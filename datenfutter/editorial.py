@@ -187,7 +187,7 @@ def render_editorial_post(spec_path, out, brand_path):
     caption = _caption(spec, sources, numbers)
     font_manager.findfont(font_manager.FontProperties(family=brand['font']), fallback_to_default=False)
     theme = {**brand['colors'], 'dpi': brand['dpi'], 'language': spec['language']}
-    style = {'font.family': brand['font'], 'svg.fonttype': 'none', 'axes.unicode_minus': True,
+    style = {'font.family': brand['font'], 'svg.fonttype': 'none', 'svg.hashsalt': 'datenfutter', 'axes.unicode_minus': True,
              'text.parse_math': False}
     pages, summaries, inputs = [], [], {}
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -239,7 +239,8 @@ def render_editorial_post(spec_path, out, brand_path):
                 for extension in ('png', 'svg'):
                     path = staged / f'{index:02d}.{extension}'
                     page.fig.savefig(path, dpi=brand['dpi'], facecolor=brand['colors']['cream'],
-                                     metadata={'Title': slide['title'].replace('\n', ' ')})
+                                     metadata={'Title': slide['title'].replace('\n', ' '),
+                                               **({'Date': None} if extension == 'svg' else {})})
                     files.append(path)
             alt = '\n\n'.join(f"{words['slide']} {i}: {_cited(s['alt_text'], numbers)}" for i, s in enumerate(spec['slides'], 1)) + '\n'
             for name, content in [('caption.md', caption), ('alt-text.md', alt)]:
