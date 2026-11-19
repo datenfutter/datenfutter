@@ -1,130 +1,162 @@
-# Datenfutter implementation plan
+# Datenfutter completion plan
 
-Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it, commit, push and check that exact remote commit before continuing. Update this document in place.
+Updated 19 November 2026, Asia/Shanghai. This file on GitHub is the authoritative execution record. Update it in each task commit. Drive's plan becomes a pointer here.
 
-The shared foundation is integrated at `b75c814ed58987f2b2d81fc0f49dbd5fce71cc26`.
-Its [main CI run](https://github.com/datenfutter/datenfutter/actions/runs/44468409988)
-passed 84 tests and the layout check. Layout reported zero projects and zero
-current posts: this is not production reproduction. The implemented foundation
-does not need to be rebuilt during migration.
+## Goal
 
-**Current status**
+Finish with one remote branch, `main`; one current output set per retained topic/language/post; and one current delivery view in Drive. Every retained final must reproduce from original evidence in a clean checkout with networking disabled. Preserve source evidence and ordinary Git history. Remove verified superseded plot derivatives, not unique research.
 
-| Task | State |
+## Verified starting checkpoint
+
+- Public main: `036879e4113eb5a4a85550d326ee81c1b2b66052`; [main CI](https://github.com/datenfutter/datenfutter/actions/runs/44514146361) passed 84 tests. Zero production projects are integrated at this baseline.
+- The recovered fuel pilot passed 103 tests. All 24 CSVs, one validation report and two nine-file German posts reproduce locally. Original receipt verification and canonical layout pass. These are local results until remote integration is recorded below.
+- All 108 final candidate paths match their enumerated sizes/hashes. The durable recovery checkpoint and complete Git history were verified. Private recovery locations are excluded from this public plan.
+- Nine remote branches remain: main plus eight integrated branches. The connector lacks delete-ref and this environment lacks authenticated Git CLI access. No canceled sign-in retry.
+- Drive retains older plot revisions, exports and packages. Later-topic migration, current delivery and cleanup remain pending.
+
+## Task protocol
+
+1. Read this ledger and the next task. Re-read remote heads; require a clean local worktree. Reuse verified implementation rather than recreating retired draft interfaces.
+2. Change only the task's stated paths or enumerated import set. One purpose per commit. Changed behavior requires a failing regression before the fix. Verified imports, documentation and output promotion use direct integrity checks.
+3. Run the exact acceptance command, inspect exit status and test count. Zero tests never satisfy a gate. Behavior changes run the full suite; shared changes rebuild every migrated final.
+4. Review the full diff, staged paths and outgoing history. Commit task plus PLAN status; push normally; verify the exact remote SHA and its CI. Integrate only passing changes and verify main's own CI.
+5. Record the previous task's integration SHA/CI in the next task commit. A task may record its own remote gate as pending until the next update. Do not create recursive status commits just to embed their own hashes. Final reconciliation closes the last references.
+6. Keep failures on the same task. Do not weaken comparisons, replace approved references or change vintages to conceal failure. Independent work may continue.
+7. Keep one active staging ref. While deletion is unavailable, reuse integrated `task/c03-public-status`, starting each task from verified main. No stacked branches, history rewriting or force-push. Delete the staging ref at closure when supported.
+
+States: pending, local-pass, remote-pass, integrated, delivered, blocked. Each record contains scope, command/result, commit/CI and remaining gate. Private destination IDs and recovery metadata remain in existing private operational records.
+
+## Structure and invariants
+
+| Path | Role |
 | --- | --- |
-| Foundation: shared renderer, brand, 64 tests and baseline CI | Integrated into main at `0d742590c4123d34b5acee4bbc4a596d50cd059f`; remote run `44464974130` passed. |
-| 3a. Fuel evidence and original receipts | Prepared and hash-verified locally; publication of the recovered Drive package awaits explicit disclosure authorization. |
-| 3b. Current fuel tables and German specs | Pending. |
-| 4a. Preparation dependencies | Integrated into main at `d2b4aa8827e323773e2953caa1892690bbb1b81c`; remote run `44466458991` passed in a clean environment. |
-| 4b. Offline preparation without old revisions | Pending. |
-| 5a. Deterministic SVG export | Integrated into main at `7a598899d7e5f294cee524998352f32ee587db84`; remote run `44465866261` passed (65 tests). Six fuel PNGs/four text files remain byte-identical. |
-| 5b. Deterministic output manifests | Integrated into main at `f62a21a5ed2586c6a38f3c79c3579e0a0876e2c8`; remote run `44466237684` passed (66 tests). Complete fuel outputs reproduce; PNG/text unchanged. |
-| 6a. Offline project build command | Integrated into main at `b416fcef216115d0625222af5f03c8acc55d4b10`; remote run `44467081314` passed (73 tests). Private fuel smoke check matches PNG/text. |
-| 6b. Compare builds against current outputs | Integrated into main at `1a89cf0290adebf19b4d292bd5bed716f87f126f`; remote run `44467501486` passed. Missing, extra and changed files fail without overwriting current outputs. |
-| 7. Current petrol and diesel output sets | Pending; one commit per post. |
-| 8a. Canonical layout check | Integrated into main at `b75c814ed58987f2b2d81fc0f49dbd5fce71cc26`; main run `44468409988` passed. Layout validity and production reproduction are separate checks. |
-| 8b. Offline production reproduction in CI | Pending; requires the production inputs. |
-| Other topics and Drive handover/cleanup | Pending. |
+| `datenfutter/`, `brand/` | Shared renderer, CLI and visual configuration |
+| `projects/<topic>/README.md`, `prepare.py` | Scope, selected methodology, offline preparation |
+| `projects/<topic>/sources/` | Original raw responses/receipts and current selection |
+| `projects/<topic>/data/processed/` | One current derived-data set |
+| `projects/<topic>/specs/<language>/<post>.json` | Current specification |
+| `projects/<topic>/posts/<language>/<post>/` | Numbered PNG/SVG pairs, caption, alt text, manifest |
+| `projects/<topic>/review.json` | Exact review state and hashes |
+| Ignored `build/` | Disposable previews and exports |
 
-The evidence-import branch remains local. Independent shared-code work can proceed from main without publishing the recovered package. Publishing, integration, source verification, editorial review and Drive delivery are separate states.
+Discover projects/posts from specs. Separate acquisition from preparation. Preserve both fuel receipt logs and all 49 original raw paths, including older/failed attempts and actual retrieval timestamps. Preserve frozen selection, units/currencies and numerical guards. Tests do not imply editorial approval, delivery or social publication.
 
-**One current state**
+Keep 1080x1350; cream #FAF8EF; navy #1C2D57 accents; black text; DejaVu Sans; circle-only df logo; approved A/B/C palettes; bold pagination; one descriptive block; localized lower-left date; complete literal source URLs in captions. Social publication and sharing changes are outside scope.
 
-Keep one current numbered PNG/SVG set, caption, alt text and manifest per topic/language/post. Replace managed outputs at stable paths. Temporary renders, contact sheets and on-demand exports belong in ignored `build/`.
+## Ordered atomic tasks
 
-Remove obsolete plot revisions, backup folders, dated output/export directories and delivery ZIP copies after replacements reproduce. Keep immutable raw evidence, original retrieval receipts, historical observations, meaningful test fixtures and ordinary Git history. Source dates and source ZIPs are valid evidence, not plot backups.
+### T00 — Publish this authoritative plan
 
-| Path | Responsibility |
-| --- | --- |
-| `datenfutter/`, `brand/` | Shared renderer, helpers, CLI and visual configuration. |
-| `projects/<topic>/README.md`, `prepare.py` | Current scope/method and offline preparation. |
-| `projects/<topic>/sources/source-register.json` | Selected evidence, definitions, limitations and source-linked parameters. |
-| `projects/<topic>/sources/raw/`, original receipt logs | Immutable source bytes and their actual retrieval history. |
-| `projects/<topic>/data/processed/` | One selected derived-data set at stable paths. |
-| `projects/<topic>/specs/<language>/<post>.json` | Current chart/copy specification. |
-| `projects/<topic>/posts/<language>/<post>/` | Current numbered slides, caption, alt text and manifest. |
-| `projects/<topic>/review.json`, `delivery.json` | Actual review decisions and verified external delivery. |
-| `tests/`, ignored `build/` | Behavioral fixtures/checks and disposable build output. |
+Scope: PLAN only. Correct retired commands; distinguish local/integrated work; state small tasks and actual blockers. Gate: entire-document/publication review, `git diff --check`, `python -m datenfutter layout`, task CI, main CI.
 
-Discover projects/posts from specifications. Keep source acquisition separate from offline builds. Draft-only work retains inputs and honest review state; a render or a folder name does not create approval.
+### C01 — Delete integrated remote branches
 
-**Atomic tasks and gates**
+Independent of fuel publication. Each row is a separate operation.
 
-| Task | Change | Gate |
+| Subtask | Branch | Expected tip |
 | --- | --- | --- |
-| 3a | Import both fuel receipt logs and their 49 referenced raw paths, current source selection and methodology. | Every original hash, size, path and timestamp preserved. |
-| 3b | Import the selected 24 CSVs and two German specs. | References resolve; both posts render under `build/`; historical plots excluded. |
-| 4a | Declare the tested preparation dependencies. | Clean installation; existing unit suite passes. |
-| 4b | Replace old-spec/source-card copying and dated-path substitutions with one offline preparation path. | All 24 selected CSVs reproduce; coverage, baseline, gaps/duplicates and composition reconcile. |
-| 5a | Stabilize SVG IDs and exporter metadata. | Repeated exports match in both supported renderers; PNG/text content unchanged. |
-| 5b | Remove volatile manifest fields while retaining source/editorial dates. | Complete output sets match in different directories. |
-| 6a | Add a thin CLI for one/all project builds into `build/`. | Clear selection/errors; final outputs preserved on failure. |
-| 6b | Add complete file-set/hash comparison against current posts. | Missing/extra/changed files fail; matching outputs pass; checking does not overwrite finals. |
-| 7a | Keep the current German petrol post. | Reproduction, full-size/phone-size image review, full caption and actual review metadata. |
-| 7b | Keep the current German diesel post. | Same gate; six slide pairs in total with matching text/manifests. |
-| 8a | Enforce canonical output locations. | Reject obsolete derivatives and unmanaged finals; allow raw evidence and draft-only topics. |
-| 8b | Verify offline production builds in CI. | Clean checkout reproduces every migrated final and leaves tracked files unchanged. |
+| C01a | `refactor/current-state` | `0d742590c4123d34b5acee4bbc4a596d50cd059f` |
+| C01b | `fix/deterministic-svg` | `7a598899d7e5f294cee524998352f32ee587db84` |
+| C01c | `fix/deterministic-manifests` | `f62a21a5ed2586c6a38f3c79c3579e0a0876e2c8` |
+| C01d | `build/preparation-dependencies` | `d2b4aa8827e323773e2953caa1892690bbb1b81c` |
+| C01e | `feat/project-build` | `b416fcef216115d0625222af5f03c8acc55d4b10` |
+| C01f | `feat/project-check` | `1a89cf0290adebf19b4d292bd5bed716f87f126f` |
+| C01g | `feat/canonical-layout` | `b75c814ed58987f2b2d81fc0f49dbd5fce71cc26` |
+| C01h | `task/c03-public-status` | Read fresh at final closure; reused during execution |
 
-Keep SVG export and manifest fixes separate. Reuse existing staging and post/language ownership checks. Existing output replacement is per-file; do not describe it as a transactional directory swap.
+Re-read main, branch tip and PRs before each deletion; prove ancestry. Reassess moved tips. Require supported deletion conditional on the expected tip, then confirm ref absence and intact main. Retain unintegrated or safely undeletable refs.
 
-**Execution order for the remaining migration**
+### C02 — Account for recovery
 
-1. Recheck and delete each fully integrated task branch individually. Keep
-   `main` and any branch with unique work. Account for local-only changes before
-   deleting local branches; a missing old checkout is not evidence of a merge.
-2. Inventory the selected inputs and exact source-to-table transformations.
-   Reuse recovered implementation only after independently checking its diff
-   and acceptance gates. Resolve disclosure for the concrete public payload
-   before importing source content or provenance.
-3. Integrate verified raw evidence, then selected tables/specifications as
-   separate changes. A preview from saved tables proves rendering only.
-4. Split preparation changes into source decoding, monthly normalization,
-   baseline/index calculations, composition reconciliation and deterministic
-   serialization. Each change owns a testable behavior. Activate the preparation
-   entry point only when all selected tables reproduce.
-5. Retain one complete post per change. Compare that post independently while
-   other specifications still lack current outputs; run the whole-project
-   comparison only after all intended current posts exist. Never weaken the
-   comparison to make an intermediate migration pass.
-6. Verify preparation in a disposable copy with saved processed tables removed,
-   comparing complete output file sets and bytes. Then require production CI
-   to run preparation and rendering without network access and leave the
-   checkout unchanged. Empty comparisons must fail.
-7. Update current Drive files, verify their exact bytes and links, then remove
-   only enumerated superseded derivatives. Repeat this sequence for one topic
-   at a time; inventory each topic before defining its preparation tasks.
+The preserved checkpoint/history is verified. Original unavailable worktrees are not presumed deleted/integrated. Record their disposition without deleting unavailable work. Resume recovered implementation rather than repeating recovery.
 
-Keep private recovery records and publication decisions outside public status
-updates unless their disclosure is authorized. Update public implementation
-facts independently of a blocked source import.
+### I03 — Import original evidence and frozen selection guards
 
-Preserve the visual system: 1080×1350, cream `#FAF8EF`, navy `#1C2D57` accents, black text, DejaVu Sans, the existing df logo, bold pagination, one descriptive block and the localized date footer. Keep literal source URLs in captions.
+Prerequisite: T00 and public-write approval for the exact payload. Scope: fuel sources (49 raw paths, both original logs, register), project README, `verify_sources.py`, `tests/test_fuel_sources.py`, PLAN. Publishes original source responses and unchanged retrieval metadata; excludes private recovery/delivery locators.
 
-**Further migrations**
+Gate: 26+23 original receipts and raw hashes/sizes match; selected cards match frozen receipts; corrupt, missing, rewritten and wrong-vintage evidence fails. Run `python -m unittest discover -s tests -p 'test_fuel_sources.py' -v`, full suite, source verifier and layout. Review every imported path.
 
-Migrate one topic at a time, normally inputs/preparation/specs followed by current outputs. Reconcile substantive source differences separately.
+### I04 — Import selected tables and specifications
 
-1. DK/NO/PL/CZ fuel, DE/EN: reconcile vintages and preserve Norway allocation limitations.
-2. Unemployment comparison, DE/EN: match definitions/vintages and preserve breaks.
-3. DE/CH/DK/NO unemployment: verify comparability, coverage and gaps.
-4. DE/NL/PL income: distinguish income year, survey year, EUR and PPS.
-5. German vehicle registrations: distinguish full and partial years and preserve pending review.
-6. Retained inflation/ECB work: inventory active specifications before removing compatibility code.
+Prerequisite: I03 integrated. Scope: exactly 24 CSVs and two German specs, README/PLAN. Build both previews from saved tables with `python -m datenfutter build fuel-prices-de-ch-lu`. Compare six PNGs/four text files to the verified reference; this is rendering, not raw reproduction.
 
-Share language-independent work only when the selected evidence/vintages agree. Remove unused legacy branches after their retained projects migrate; preserve relevant behavior in small fixtures. Consolidate stale entry/schema/brand guidance around the supported workflow.
+### P07 — Integrate recovered offline preparation
 
-**Push and handover routine**
+Prerequisite: I04 integrated. Scope: existing fuel `prepare.py`, validation report, `tests/test_fuel_preparation.py`, README/PLAN. Reuse `read_prices`, `index_monthly`, `decompose`, `prepare`; draft loader interfaces are retired.
 
-Inspect the diff, run the task gate, stage explicit paths, commit and push normally. Verify the remote head and CI for that SHA before the next change. Integrate coherent slices into main. Shared renderer/schema/brand changes check every available migrated project. Record remote results in the next ordinary status update; avoid extra commits merely to chase self-referential hashes.
+Gate: all 24 CSVs reproduce from original raw bytes; six series x 94 months and twelve baseline months each; missing/duplicate months, currency errors and inconsistent tax components fail. Run preparation tests, full suite and build. Verify exact bytes and input preservation in a disposable copy without saved processed tables. Do not rewrite proven implementation solely to manufacture commits; defects get separate tasks.
 
-Use one active task branch from current main. After integration, verify the
-resulting main SHA and its CI, then delete the task branch after checking
-ancestry again. If a gate fails, stay on the same task and branch, record the
-failing input/command, and fix it before starting dependent work. Keep local
-checks, remote checks, integration, editorial review and delivery distinct.
+### O01 — Retain German petrol
 
-Git is the working source for migrated code/specifications/data selection once publication is authorized. Drive remains the working source for unmigrated material and the current delivery view. After a clean checkout and remote checks succeed, update selected Drive files by verified IDs, remove superseded derivatives and update the current index/instructions. Preserve sharing.
+Prerequisite: P07 integrated. Scope: petrol's nine managed files, review record, README/PLAN. Rebuild previews; compare full petrol file set/bytes; inspect three slides full-size/phone-size and complete caption/alt text. Preserve actual internally-checked/preview/not-published state.
 
-Inspect mixed recovery packages for unique evidence before removing them; use recoverable removal. Clean cross-topic bundles only after every included topic has a verified retained destination. Do not create a replacement archive hierarchy for old plots.
+### O02 — Retain German diesel
 
-Complete means: every retained topic rebuilds offline, every final topic/language/post has one current managed set, no active build depends on obsolete plot revisions, repeated builds leave tracked files unchanged, integration/CI are verified, and Drive's current delivery matches the handover. Social publication is outside this task.
+Prerequisite: O01 integrated. Scope: diesel's nine files, review record, README/PLAN. Same inspection. Then `python -m datenfutter check fuel-prices-de-ch-lu`; require exactly 18 managed outputs and layout of one project/two current posts. Checks leave originals unchanged.
+
+### V01 — Integrate raw-only production verification
+
+Prerequisite: O02 integrated. Scope: `scripts/check_production.py`, `tests/test_production.py`, README/PLAN. Use reviewed-post records and spec discovery; no second output inventory.
+
+Gate: disposable preparation excludes saved processed files; compares every prepared file/current output; rejects empty/shrunken reviewed selection and input mutation. Verify no-op preparation and missing/extra/changed table cases; add missing acceptance cases as bounded tests. Run full suite and `python scripts/check_production.py`: one project, two posts, 25 prepared files. Shared comparison tests cover corrupt output sets.
+
+### V02 — Prove offline production CI
+
+Prerequisite: V01 integrated. Scope: workflow and PLAN. Install pinned dependencies before isolation, then `sudo unshare --net -- "$(command -v python)" scripts/check_production.py`. No online fallback if isolation fails. Require clean tracked/untracked state and successful exact task/main CI URLs.
+
+### D00 — Replace Drive's duplicate plan with a GitHub pointer
+
+Prerequisite: T00 integrated. Update existing Drive PLAN in place, preserving ID/parent/sharing. Replace stale narrative with canonical GitHub PLAN URL and source-of-truth explanation. Verify exact readback.
+
+### D01 — Deliver verified fuel outputs
+
+Prerequisite: V02 integrated and required image/caption review completed. Serial subtasks: D01a map all 18 grounded destination IDs and sharing; D01b replace petrol's nine files; D01c replace diesel's nine files; D01d reconcile delivery/index/entry records.
+
+Prepare the complete set before replacement. Updates are per-file, not transactional. Read back each file and compare hashes to tested main. Resume partial failures by ID; keep destination IDs private.
+
+### D02 — Remove superseded fuel derivatives
+
+Prerequisite: D01 complete. D02a enumerate each candidate ID, role and verified replacement; inspect mixed packages for unique evidence/unmigrated topics. D02b remove each eligible item recoverably, then verify delivery and evidence still resolve. No blanket date/folder/ZIP deletion or archive hierarchy for obsolete plots. If only permanent deletion is available, retain candidates and record the blocker.
+
+### R01–R06 — Migrate remaining topics serially
+
+| Task | Scope and reconciliation |
+| --- | --- |
+| R01 | DK/NO/PL/CZ fuel, DE/EN; vintages and Norway allocation limitations |
+| R02 | Unemployment comparison, DE/EN; definitions, vintages, breaks |
+| R03 | DE/CH/DK/NO unemployment; comparability, coverage, gaps |
+| R04 | DE/NL/PL income; income/survey year, EUR/PPS |
+| R05 | German vehicle registrations; full/partial years and actual review state |
+| R06 | Retained inflation/ECB; active specs and compatibility users |
+
+Start each topic with a separate `.01` inventory/contract commit: exact files/hashes/vintages, languages/posts, transformations and review state. Add concrete children here before coding: `.02` evidence; `.03` tables/specs; `.04a` onward one decoder/transformation per change; `.04z` raw-only table verification; `.05a` onward one complete language/post per change; `.06` offline CI for all finals; `.07a` onward bounded delivery; `.08a` cleanup inventory and `.08b` individual recoverable removals. No entire-topic commits or invented input contracts.
+
+### Z01 — Remove proven-unused compatibility
+
+After retained-topic inventories/migrations, trace every compatibility user. Remove one unused unit per task; retain useful behavioral fixtures. Run full suite and offline reproduction for all finals. Keep any unit with an active retained user.
+
+### Z02 — Final reconciliation
+
+Align GitHub README/AGENTS/PLAN and Drive entry/index guidance. Retire conflicting instructions only after checking unique content. Reconcile mixed packages after all dependent topics have retained destinations. Verify final main CI, full suite, offline reproduction, clean worktree, current Drive hashes/sharing and main-only refs. Record unresolved external capabilities/unavailable work explicitly.
+
+## Task ledger
+
+| Task | State | Evidence / remaining gate |
+| --- | --- | --- |
+| T00 | local-pass | Layout: 0 projects/0 posts; diff and publication review passed. Task/main CI pending. |
+| C01 | blocked | Nine live refs; no authenticated expected-tip-conditional deletion operation. |
+| C02 | local-pass | Durable checkpoint/history verified; unavailable original worktrees preserved by non-deletion. |
+| I01 | local-pass | Recovered contract and 108 final candidate paths verified; no reselection. |
+| I03–P07 | local-pass | Recovered implementation verified; public integration pending. |
+| O01–O02 | local-pass | Two posts reproduce; remote integration/delivery pending. |
+| V01 | local-pass | Production verifier succeeds; check every named negative case before integration. |
+| V02 | pending | Network-isolated remote execution unverified. |
+| D00–D02 | pending | No current delivery replacements or derivative removals. |
+| R01–R06, Z01–Z02 | pending | Follow pilot and topic inventories. |
+
+## Rulings
+
+- Reuse verified code and actual test/CLI names; old draft interfaces are superseded.
+- This committed ledger replaces parallel status-plan maintenance; private operational metadata stays private.
+- Reuse the existing integrated staging ref while deletion is unavailable; main-only closure remains outstanding.
+- Local verification, public integration, remote CI, editorial review, delivery and cleanup have separate gates.
