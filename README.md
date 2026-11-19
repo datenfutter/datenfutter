@@ -11,3 +11,23 @@ The first pilot is the DE/CH/LU fuel snapshot retrieved on 18 November 2026, cov
 ## Local checks
 
 Use Python 3.12. Install `requirements.txt`, then run `python -m unittest discover -s tests -v`. The CI workflow runs the same suite. The small legacy input fixture preserves behavioral coverage during migration; historical plot outputs are not included.
+
+## Offline project builds
+
+Run `python -m datenfutter build TOPIC` for one canonical project, or
+`python -m datenfutter build --all`. Projects are discovered from
+`projects/<topic>/specs/<language>/<post>.json`. Each specification must use
+schema 0.4 (0.3 alias supported) and match its language directory.
+
+The command copies inputs into a disposable workspace under ignored `build/`,
+runs the project's `prepare.py` there when present, and renders with the shared
+brand. Preparation scripts use their own project directory for inputs and
+outputs; acquisition is a separate command. Projects without preparation use
+their saved tables. Successful previews are placed under
+`build/projects/<topic>/posts/<language>/<post>/`. Current posts and input files
+are never the build destination. Rendering/preparation errors preserve previous
+previews; output promotion retains the renderer's per-file replacement behavior.
+
+An empty project selection is an error. Production inputs are awaiting migration;
+the public CI baseline currently exercises synthetic fixtures and retained small
+legacy inputs, not a complete production rebuild.
