@@ -38,15 +38,15 @@ Drive topics are still pending; merging existing work does not migrate them.
 
 | Task | Scope | State and acceptance evidence |
 | --- | --- | --- |
-| M00 | Align AGENTS, README, START_HERE, workflow/structure docs and this ledger. | Local-pass: instructions reviewed; diff/layout gates. Remote CI pending this commit. |
-| M01 (I03) | Import 49 original raw paths, both receipt logs, current source register, verifier, source tests and project README. | Pending. Require 6 source tests, full suite, verifier and layout; verify every source blob against original receipts. |
+| M00 | Align AGENTS, README, START_HERE, workflow/structure docs and this ledger. | Integrated: `70f1e575a625b3a42349879dd74a51857b76ba56`; [main CI](https://github.com/datenfutter/datenfutter/actions/runs/44532733930) passed 84 tests and layout. |
+| M01 (I03) | Import 48 original raw paths, both unchanged receipt logs, current source register, verifier, source tests and project README; withhold the exact unused TCS response described below. | Not integrated. Revised local candidate passes 9 source tests / 93 total tests. Source-object transfer was interrupted before a tree/commit/ref update. Verify remote objects before resuming; do not upload the withheld TCS response. |
 | M02 (I04/P07) | Import 24 CSVs, validation report, two German specs, existing prepare.py and preparation tests. | Pending. Require full suite, exact raw-only preparation, both preview builds and unchanged source inputs. |
 | M03a (O01) | Import German petrol's nine current files. | Pending. Require full file-set/hash equality to recovered final and preview; layout. |
 | M03b (O02) | Import German diesel's nine current files and exact review record. | Pending. Require full file-set/hash equality, project check, 18 managed outputs and layout. |
 | M04 (V01/V02) | Import production verifier/tests and network-isolated CI. | Pending. Require full suite, missing/extra/changed/no-op preparation cases, review-scope and input-preservation cases, raw-only production reproduction and exact main CI. |
 | M05 | Reconcile instructions/ledger and all branch contents; verify main and clean checkout. | Pending. Record preceding integration CI, confirm no output backups, preserve current review states. |
 
-Next executable task: M01 after M00's exact main CI succeeds.
+Next executable task: finish M01. M00 CI has succeeded. Main still has no production projects; do not infer integration from partially uploaded Git objects.
 
 All eight existing remote branch tips were verified contained in main at
 `b22b5fb72df54e7f1602eac4f44909dbc1051338`; no open PRs remained. Seven historical
@@ -68,8 +68,9 @@ being consolidated. Import the final state rather than replaying obsolete code.
 | projects/TOPIC/review.json | Actual review state and exact hashes |
 | Ignored build/ | Disposable preparation and previews |
 
-Discover posts from specifications. Preserve fuel's 26+23 original receipt
-entries and all 49 raw paths, including failed attempts and retrieval dates.
+Discover posts from specifications. Preserve fuel's 26+23 original receipt entries unchanged and 48 publishable raw
+paths, including failed attempts and retrieval dates. Withhold only the exact
+unused TCS response below; all ten selected build sources must remain present.
 These are research evidence, not output backups. Keep the frozen selection,
 units/currencies and numerical guards. Check authored-file whitespace; original
 HTML bytes are validated by hashes and must not be reformatted.
@@ -111,3 +112,28 @@ change must pass the full suite and reproduce all migrated finals.
 - Final verification concerns current main, its CI, canonical file sets and the
   clean checkout. Report remaining topic work honestly; manual cleanup does not
   prevent completion of the consolidation tasks above.
+
+## M01 publication exception and interruption checkpoint
+
+Automatic approval review rejected the upload of
+`projects/fuel-prices-de-ch-lu/sources/raw/tcs_prices-256711361e71.html`
+because its original HTML contains embedded API keys and production
+configuration. Do not retry that payload or publish a historical commit/tree
+containing it. It is not used by the ten selected sources, preparation or posts.
+Its original bytes remain in the existing private Drive material.
+
+Safer import: retain both original receipt logs byte-for-byte, omit this one
+response, and document its original SHA-256
+`256711361e71332bbd7556b962113ac8d82628808f79d0aeac75c082983aff37`
+and size 468265 bytes. The verifier must allow only this exact nonselected
+omission, validate its original receipt, reject its reintroduction into the
+public project, and still reject other missing/corrupt evidence or changes to
+the selected sources. The revised local candidate passed 93 tests, including
+these boundaries, after demonstrating the prior verifier failed the exclusion.
+This change and the evidence have not been committed to main.
+
+The subsequent source transfer was interrupted. Do not claim source imports,
+prepared tables, current posts or production CI are integrated. Read the live
+main tree and verify which content-addressed source objects already exist before
+resuming. Avoid long unbounded upload loops; use bounded calls and checkpoint
+verified outcomes. Manual branch deletion and Drive cleanup remain user-owned.
