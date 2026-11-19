@@ -143,15 +143,16 @@ Align GitHub README/AGENTS/PLAN and Drive entry/index guidance. Retire conflicti
 
 | Task | State | Evidence / remaining gate |
 | --- | --- | --- |
-| T00 | local-pass | Layout: 0 projects/0 posts; diff and publication review passed. Task/main CI pending. |
-| C01 | blocked | Nine live refs; no authenticated expected-tip-conditional deletion operation. |
+| T00 | integrated | `2841d858423ec45af922005f320c2c85c235bf08`; [task CI](https://github.com/datenfutter/datenfutter/actions/runs/44528662178) and [main CI](https://github.com/datenfutter/datenfutter/actions/runs/44528829844) passed. |
+| C01 | blocked | Seven original tips reverified as ancestors; no PRs. Nine live refs remain; no authenticated conditional deletion operation. |
 | C02 | local-pass | Durable checkpoint/history verified; unavailable original worktrees preserved by non-deletion. |
 | I01 | local-pass | Recovered contract and 108 final candidate paths verified; no reselection. |
 | I03–P07 | local-pass | Recovered implementation verified; public integration pending. |
 | O01–O02 | local-pass | Two posts reproduce; remote integration/delivery pending. |
 | V01 | local-pass | Production verifier succeeds; check every named negative case before integration. |
 | V02 | pending | Network-isolated remote execution unverified. |
-| D00–D02 | pending | No current delivery replacements or derivative removals. |
+| D00 | delivered | Existing Drive plan replaced in place by GitHub pointer; exact text readback, parent and owner-only sharing verified. This receipt commit awaits task/main CI. |
+| D01–D02 | pending | No current output replacements or derivative removals. |
 | R01–R06, Z01–Z02 | pending | Follow pilot and topic inventories. |
 
 ## Rulings
