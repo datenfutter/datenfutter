@@ -11,8 +11,8 @@ Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it
 | 3b. Current fuel tables and German specs | Pending. |
 | 4a. Preparation dependencies | Pending. |
 | 4b. Offline preparation without old revisions | Pending. |
-| 5a. Deterministic SVG export | Implemented; 65 tests pass locally and six fuel PNGs/four text files are byte-identical to the selected snapshot; remote verification pending. |
-| 5b. Deterministic output manifests | Pending. |
+| 5a. Deterministic SVG export | Integrated into main at `7a598899d7e5f294cee524998352f32ee587db84`; remote run `44465866261` passed (65 tests). Six fuel PNGs/four text files remain byte-identical. |
+| 5b. Deterministic output manifests | Implemented; 66 tests pass locally; both fuel posts match across output directories including manifests, with PNG/text unchanged. Remote verification pending. |
 | 6a. Offline project build command | Pending. |
 | 6b. Compare builds against current outputs | Pending. |
 | 7. Current petrol and diesel output sets | Pending; one commit per post. |

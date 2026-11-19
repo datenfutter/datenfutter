@@ -4,7 +4,7 @@ import json
 import math
 import re
 import tempfile
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
 
 import matplotlib
@@ -568,7 +568,6 @@ def render_post(spec_path: str | Path, output_dir: str | Path, brand_path: str |
                 exported.append(path)
             manifest = {
                 'project': 'datenfutter', 'version': '0.3.0', 'post_id': spec['id'],
-                'rendered_at_utc': datetime.now(timezone.utc).isoformat(),
                 'matplotlib_version': matplotlib.__version__, 'font': brand['font'],
                 'typography': {'title_px': 57, 'subtitle_px': 26 if spec.get('layout') == 'editorial' else 24,
                                'axis_tick_px': 21, **brand['typography']},

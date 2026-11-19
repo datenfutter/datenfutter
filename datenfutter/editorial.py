@@ -7,7 +7,7 @@ import csv
 import json
 import math
 import tempfile
-from datetime import date, datetime, timezone
+from datetime import date, datetime
 from pathlib import Path
 
 import matplotlib
@@ -251,7 +251,6 @@ def render_editorial_post(spec_path, out, brand_path):
                 'project': 'datenfutter', 'version': '0.4.0', 'post_id': spec['id'],
                 'review_status': 'preview', 'language': spec['language'],
                 'publication': publication,
-                'rendered_at_utc': datetime.now(timezone.utc).isoformat(),
                 'matplotlib_version': matplotlib.__version__, 'font': brand['font'],
                 'typography': {'title_px': 58, 'subtitle_px': 25, 'axis_tick_px': 21, **brand['typography']},
                 'typography_base': brand['_typography_base'],
