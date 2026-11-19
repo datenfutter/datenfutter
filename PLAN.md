@@ -13,8 +13,8 @@ Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it
 | 4b. Offline preparation without old revisions | Pending. |
 | 5a. Deterministic SVG export | Integrated into main at `7a598899d7e5f294cee524998352f32ee587db84`; remote run `44465866261` passed (65 tests). Six fuel PNGs/four text files remain byte-identical. |
 | 5b. Deterministic output manifests | Integrated into main at `f62a21a5ed2586c6a38f3c79c3579e0a0876e2c8`; remote run `44466237684` passed (66 tests). Complete fuel outputs reproduce; PNG/text unchanged. |
-| 6a. Offline project build command | Implemented; 73 tests pass locally; private fuel smoke check reproduces all PNG/text. Remote verification pending. |
-| 6b. Compare builds against current outputs | Pending. |
+| 6a. Offline project build command | Integrated into main at `b416fcef216115d0625222af5f03c8acc55d4b10`; remote run `44467081314` passed (73 tests). Private fuel smoke check matches PNG/text. |
+| 6b. Compare builds against current outputs | Implemented; 78 tests pass locally, including missing/extra/changed output failures; the private fuel snapshot passes comparison. Remote verification pending. |
 | 7. Current petrol and diesel output sets | Pending; one commit per post. |
 | 8a. Canonical layout check | Pending. |
 | 8b. Offline production reproduction in CI | Pending; requires the production inputs. |

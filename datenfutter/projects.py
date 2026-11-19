@@ -1,4 +1,5 @@
 """Build canonical projects in disposable workspaces without changing final posts."""
+import hashlib
 import json
 import os
 import re
@@ -101,3 +102,42 @@ def build_projects(root, names):
         for staged, destination, files, post_id, language in pending:
             published.extend(_publish(staged, destination, files, post_id, language=language))
         return published
+
+
+def check_projects(root, names, *, allow_drafts=False):
+    """Compare rebuilt files with current outputs; never promote them to posts/."""
+    root = Path(root).resolve()
+    current, drafts = [], []
+    for name in names:
+        select_projects(root, name)
+        posts = root / 'projects' / name / 'posts'
+        if posts.is_symlink():
+            raise ValueError(f'Current post directory is a symlink: {name}.')
+        if posts.exists() and any(p.is_file() for p in posts.rglob('*')):
+            current.append(name)
+        else:
+            drafts.append(name)
+    if drafts and not allow_drafts:
+        raise ValueError('No current outputs to compare for: ' + ', '.join(drafts))
+    if not current:
+        raise ValueError('No current outputs to compare; build previews first.')
+    rebuilt = build_projects(root, current)
+    expected = {p.relative_to(root / 'build/projects'): p for p in rebuilt}
+    actual = {}
+    for name in current:
+        for path in (root / 'projects' / name / 'posts').rglob('*'):
+            if path.is_symlink():
+                raise ValueError(f'Current outputs contain a symlink: {path}.')
+            if path.is_file():
+                actual[path.relative_to(root / 'projects')] = path
+    differences = []
+    for path in sorted(expected.keys() - actual.keys()):
+        differences.append(f'missing: {path}')
+    for path in sorted(actual.keys() - expected.keys()):
+        differences.append(f'extra: {path}')
+    for path in sorted(expected.keys() & actual.keys()):
+        if hashlib.sha256(expected[path].read_bytes()).digest() != hashlib.sha256(actual[path].read_bytes()).digest():
+            differences.append(f'changed: {path}')
+    if differences:
+        raise ValueError('Current outputs do not match the rebuild:\n' + '\n'.join(differences))
+    return current, drafts

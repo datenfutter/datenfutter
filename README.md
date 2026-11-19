@@ -31,3 +31,10 @@ previews; output promotion retains the renderer's per-file replacement behavior.
 An empty project selection is an error. Production inputs are awaiting migration;
 the public CI baseline currently exercises synthetic fixtures and retained small
 legacy inputs, not a complete production rebuild.
+
+Run `python -m datenfutter check TOPIC` or `python -m datenfutter check --all`
+to rebuild and compare the complete file sets and bytes against current posts.
+Checks report missing, extra and changed files; they never repair or overwrite
+current posts. `--all` reports and skips projects with no current outputs. A
+comparison with no current outputs fails, so an empty tree cannot masquerade
+as a successful production rebuild.

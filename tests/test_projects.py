@@ -9,7 +9,7 @@ import unittest
 from pathlib import Path
 
 import test_editorial
-from datenfutter.projects import build_projects, select_projects
+from datenfutter.projects import build_projects, check_projects, select_projects
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -115,3 +115,68 @@ class ProjectBuildTests(unittest.TestCase):
             (root / 'build').symlink_to(root / 'projects', target_is_directory=True)
             with self.assertRaisesRegex(ValueError, 'symlink'):
                 build_projects(root, ['sample'])
+
+
+class ProjectCheckTests(unittest.TestCase):
+    def current_fixture(self, root):
+        project, _, _ = fixture(root)
+        built = build_projects(root, ['sample'])
+        for path in built:
+            destination = root / 'projects' / path.relative_to(root / 'build/projects')
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(path, destination)
+        return project
+
+    def test_matching_outputs_pass_without_overwriting_current_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            project = self.current_fixture(root)
+            before = {p: p.read_bytes() for p in (project / 'posts').rglob('*') if p.is_file()}
+            self.assertEqual(check_projects(root, ['sample']), (['sample'], []))
+            self.assertEqual({p: p.read_bytes() for p in before}, before)
+
+    def test_missing_extra_and_changed_outputs_fail_without_being_repaired(self):
+        for failure in ['missing', 'extra', 'changed']:
+            with self.subTest(failure=failure), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                project = self.current_fixture(root)
+                output = project / 'posts/de/example'
+                if failure == 'missing':
+                    (output / '01.svg').unlink()
+                elif failure == 'extra':
+                    (output / 'old-copy.png').write_bytes(b'not an image; synthetic test')
+                else:
+                    (output / 'caption.md').write_text('Changed synthetic test caption.')
+                before = {p: p.read_bytes() for p in output.iterdir()}
+                with self.assertRaisesRegex(ValueError, failure + ':'):
+                    check_projects(root, ['sample'])
+                self.assertEqual({p: p.read_bytes() for p in output.iterdir()}, before)
+
+    def test_drafts_are_reported_but_an_empty_comparison_never_passes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            fixture(root, 'draft')
+            with self.assertRaisesRegex(ValueError, 'No current outputs'):
+                check_projects(root, ['draft'], allow_drafts=True)
+            self.current_fixture(root)
+            self.assertEqual(check_projects(root, ['draft', 'sample'], allow_drafts=True),
+                             (['sample'], ['draft']))
+
+    def test_cli_check_fails_for_changed_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            project = self.current_fixture(root)
+            (project / 'posts/de/example/alt-text.md').write_text('changed')
+            result = subprocess.run([sys.executable, '-m', 'datenfutter', '--root', str(root),
+                                     'check', 'sample'], cwd=ROOT, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('changed: sample/posts/de/example/alt-text.md', result.stderr)
+
+    def test_current_output_symlinks_are_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            project = self.current_fixture(root)
+            (root / 'unrelated.txt').write_text('unrelated')
+            (project / 'posts/de/example/link.txt').symlink_to(root / 'unrelated.txt')
+            with self.assertRaisesRegex(ValueError, 'symlink'):
+                check_projects(root, ['sample'])
