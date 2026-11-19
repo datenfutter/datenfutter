@@ -1,0 +1,1 @@
+Minimal legacy input fixtures recovered from the 20 September checkpoint. Only three input files are retained for behavioral regressions; no historical plot outputs are stored. This fixture is not an active production migration.

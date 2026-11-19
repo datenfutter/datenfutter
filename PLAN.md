@@ -4,8 +4,9 @@ Implementation started 19 November 2026, Asia/Shanghai, under the user-approved 
 
 **Implementation status**
 
-- Step 1: current plan and output policy recorded.
-- Steps 2–8: pending.
+- Step 1: pushed and remote head verified (2d1100d).
+- Step 2: shared code, assets, tests and CI baseline imported; 64 tests pass locally in the declared environment; remote validation pending.
+- Steps 3–8: pending.
 - Remaining topic migrations and Drive cleanup: pending.
 
 Source: [Datenfutter working folder](https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs). Destination: [datenfutter/datenfutter](https://github.com/datenfutter/datenfutter).

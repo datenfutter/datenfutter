@@ -1,0 +1,18 @@
+{
+  "sources": [
+    {
+      "id": "ecb-rates",
+      "publisher": "European Central Bank",
+      "title": "Key ECB interest rates",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+      "retrieved_at": "2026-09-20",
+      "coverage_start": "2019-09-18",
+      "coverage_end": "2025-12-31",
+      "metric": "Deposit facility rate",
+      "unit": "% per annum",
+      "frequency": "Effective-date changes",
+      "method": "Transcribed the deposit-facility column and effective dates from the official table. Retained the preceding 2019 rate for the 2022 boundary. Excluded changes after 2025 to freeze the example period. The table contains no further 2025 change after 11 June.",
+      "reuse_note": "Primary numerical facts with ECB attribution. Review the publisher's current terms for any production distribution requirements."
+    }
+  ]
+}

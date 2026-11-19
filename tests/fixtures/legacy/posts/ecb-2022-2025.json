@@ -1,0 +1,50 @@
+{
+  "id": "ecb-2022-2025",
+  "edition": "ECONOMY / 001",
+  "topic": "The ECB rate cycle",
+  "data_file": "../data/ecb_deposit_facility.csv",
+  "sources_file": "../research/sources.json",
+  "source_ids": ["ecb-rates"],
+  "source_credit": "Source: European Central Bank · Key ECB interest rates",
+  "as_of": "2026-09-20",
+  "coverage_end": "2025-12-31",
+  "series_kind": "effective_date_schedule",
+  "caption_intro": "A four-year view of the ECB deposit facility rate. The rate rose from -0.50% at the start of 2022 to a 4.00% peak, then ended 2025 at 2.00%. This is a historical illustration covering 2022–2025, not a current-rate update.",
+  "slides": [
+    {
+      "kicker": "THE BIG PICTURE",
+      "title": "Four years.\nOne rate cycle.",
+      "subtitle": "The ECB deposit facility rate, 2022–2025.\nFrom negative territory to 4%, then back to 2%.",
+      "chart_label": "DEPOSIT FACILITY RATE · % PER ANNUM",
+      "chart": {
+        "type": "step",
+        "start": "2022-01-01",
+        "end": "2025-12-31",
+        "decimals": 2,
+        "suffix": "%",
+        "highlight_max": true
+      },
+      "takeaway_label": "READ THE SHAPE",
+      "explanation": "Each step marks a change in the official rate.\nThe endpoint is 2 percentage points below the peak.",
+      "note": "Effective dates shown; rates stay in force between changes.",
+      "alt_text": "Step chart of the ECB deposit facility rate from 1 January 2022 to 31 December 2025. It starts at minus 0.50%, reaches 4.00% on 20 September 2023, and ends at 2.00%. The line uses effective dates and remains flat between changes. Source: European Central Bank."
+    },
+    {
+      "kicker": "THE YEARLY CHANGE",
+      "title": "The climb was steeper\nthan the descent.",
+      "subtitle": "Change in the same rate, in percentage points.\nEach year-end compared with the previous year-end.",
+      "chart_label": "YEAR-END CHANGE · PERCENTAGE POINTS",
+      "chart": {
+        "type": "bar",
+        "transform": "annual_change",
+        "years": [2022, 2023, 2024, 2025],
+        "decimals": 1,
+        "suffix": " pp"
+      },
+      "takeaway_label": "A DIFFERENT VIEW",
+      "explanation": "The rate rose by 4.5 points across 2022 and 2023.\nIt fell by 2 points across 2024 and 2025.",
+      "note": "Percentage points describe rate differences, not percent returns.",
+      "alt_text": "Horizontal bar chart of annual changes in the ECB deposit facility rate, in percentage points. 2022: plus 2.5; 2023: plus 2.0; 2024: minus 1.0; 2025: minus 1.0. Each change compares year-end with the preceding year-end. Positive bars are solid navy; negative bars are cream with a navy outline. Source: European Central Bank."
+    }
+  ]
+}

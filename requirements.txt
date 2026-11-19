@@ -1,0 +1,4 @@
+# Exact versions used for the verified starter. Python 3.12.
+matplotlib==3.10.8
+numpy==2.3.5
+Pillow==12.3.0

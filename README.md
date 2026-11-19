@@ -7,3 +7,7 @@ The repository is being migrated from the [working Drive folder](https://drive.g
 Each project will retain one current set of plots under `projects/<topic>/posts/<language>/<post>/`. Raw source evidence and retrieval receipts remain available; Git records later revisions. Temporary previews belong in ignored `build/`. Shared code and brand assets are maintained once at the root.
 
 The first pilot is the DE/CH/LU fuel snapshot retrieved on 18 November 2026, covering January 2019–October 2026. No social publication is implied by a repository commit.
+
+## Local checks
+
+Use Python 3.12. Install `requirements.txt`, then run `python -m unittest discover -s tests -v`. The CI workflow runs the same suite. The small legacy input fixture preserves behavioral coverage during migration; historical plot outputs are not included.

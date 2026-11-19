@@ -7,4 +7,6 @@ __pycache__/
 .env.*
 build/
 dist/
-*.zip
+
+# Temporary local rendering/configuration
+.matplotlib/

@@ -1,0 +1,29 @@
+{
+  "name": "datenfutter",
+  "tagline": "A little more perspective.",
+  "width": 1080,
+  "height": 1350,
+  "dpi": 120,
+  "font": "DejaVu Sans",
+  "colors": {
+    "navy": "#1C2D57",
+    "cream": "#FAF8EF",
+    "muted": "#626C80",
+    "accent": "#A85736",
+    "grid": "#DDDCD3",
+    "series_1": "#1C2D57",
+    "series_2": "#A85736",
+    "series_3": "#526B73",
+    "text": "#000000"
+  },
+  "palette_id": "a",
+  "status": "approved-palette-option",
+  "approved_options": [
+    "a",
+    "b",
+    "c"
+  ],
+  "page_background": "cream",
+  "text_color_role": "text",
+  "accent_color_role": "navy"
+}
