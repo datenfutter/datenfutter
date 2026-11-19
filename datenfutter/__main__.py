@@ -3,6 +3,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from .layout import check_layout
 from .projects import build_projects, check_projects, select_projects
 
 
@@ -10,6 +11,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog='python -m datenfutter')
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     commands = parser.add_subparsers(dest='command', required=True)
+    commands.add_parser('layout', help='Check canonical paths and current output sets.')
     for command, help_text in [('build', 'Prepare and render into ignored build/.'),
                                ('check', 'Rebuild and compare all current output files.')]:
         action = commands.add_parser(command, help=help_text)
@@ -17,6 +19,11 @@ def main(argv=None):
         action.add_argument('--all', action='store_true', dest='all_projects')
     args = parser.parse_args(argv)
     try:
+        if args.command == 'layout':
+            projects, posts = check_layout(args.root)
+            print(f'Layout valid: {projects} project(s), {posts} current post(s). '
+                  'Reproduction is checked separately.')
+            return 0
         names = select_projects(args.root, args.project, all_projects=args.all_projects)
         if args.command == 'build':
             files = build_projects(args.root, names)
