@@ -2,7 +2,7 @@
 
 Source-backed statistical charts for Datenfutter (German) and Datafodder (English).
 
-The repository is being migrated from the [working Drive folder](https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs). See [PLAN.md](PLAN.md) for current migration status and the next atomic steps.
+**GitHub main is canonical.** Read [PLAN.md](PLAN.md) for the next executable task and verified progress. The [working Drive folder](https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs) supplies unmigrated source material; its older instructions and output copies are not authoritative. The user handles old-branch deletion and Drive cleanup manually.
 
 Each project will retain one current set of plots under `projects/<topic>/posts/<language>/<post>/`. Raw source evidence and retrieval receipts remain available; Git records later revisions. Temporary previews belong in ignored `build/`. Shared code and brand assets are maintained once at the root.
 
@@ -45,10 +45,10 @@ A valid layout with zero current posts is not a production reproduction check.
 
 ## Small verified changes
 
-Start each bounded task on one branch from current main. Inspect the diff and
-run its acceptance gate, then verify the exact pushed commit and its CI before
-integration. Verify main after integration and delete the integrated task
-branch after a fresh ancestry check. Keep failures on the same task branch.
+Continue this consolidation in small verified commits to main. Inspect the diff,
+run the acceptance gate, then update the expected remote head without force and
+verify CI for that exact commit. Do not create extra branches or recovery bundles.
+Manual branch deletion and Drive cleanup do not block the next executable task.
 
 During migration, rendering from saved tables and rebuilding those tables from
 raw evidence are separate gates. Production verification must exclude existing
