@@ -9,10 +9,10 @@ Updated 19 November 2026, Asia/Shanghai. Implement one bounded change, verify it
 | Foundation: shared renderer, brand, 64 tests and baseline CI | Integrated into main at `0d742590c4123d34b5acee4bbc4a596d50cd059f`; remote run `44464974130` passed. |
 | 3a. Fuel evidence and original receipts | Prepared and hash-verified locally; publication of the recovered Drive package awaits explicit disclosure authorization. |
 | 3b. Current fuel tables and German specs | Pending. |
-| 4a. Preparation dependencies | Pending. |
+| 4a. Preparation dependencies | Declared pandas 2.2.3 and openpyxl 3.1.5; installed/imported locally; remote clean-environment verification pending. |
 | 4b. Offline preparation without old revisions | Pending. |
 | 5a. Deterministic SVG export | Integrated into main at `7a598899d7e5f294cee524998352f32ee587db84`; remote run `44465866261` passed (65 tests). Six fuel PNGs/four text files remain byte-identical. |
-| 5b. Deterministic output manifests | Implemented; 66 tests pass locally; both fuel posts match across output directories including manifests, with PNG/text unchanged. Remote verification pending. |
+| 5b. Deterministic output manifests | Integrated into main at `f62a21a5ed2586c6a38f3c79c3579e0a0876e2c8`; remote run `44466237684` passed (66 tests). Complete fuel outputs reproduce; PNG/text unchanged. |
 | 6a. Offline project build command | Pending. |
 | 6b. Compare builds against current outputs | Pending. |
 | 7. Current petrol and diesel output sets | Pending; one commit per post. |
