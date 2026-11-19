@@ -147,11 +147,12 @@ Align GitHub README/AGENTS/PLAN and Drive entry/index guidance. Retire conflicti
 | C01 | blocked | Seven original tips reverified as ancestors; no PRs. Nine live refs remain; no authenticated conditional deletion operation. |
 | C02 | local-pass | Durable checkpoint/history verified; unavailable original worktrees preserved by non-deletion. |
 | I01 | local-pass | Recovered contract and 108 final candidate paths verified; no reselection. |
-| I03–P07 | local-pass | Recovered implementation verified; public integration pending. |
+| I03 | blocked | Prepared import passes 6 source tests / 90 total tests and source/layout gates. Automatic approval review rejected the first evidence upload: explicit authorization for original source responses and retrieval metadata in this public repository is required. No evidence blob was uploaded. |
+| I04–P07 | local-pass | Recovered implementation verified; public integration pending. |
 | O01–O02 | local-pass | Two posts reproduce; remote integration/delivery pending. |
 | V01 | local-pass | Production verifier succeeds; check every named negative case before integration. |
 | V02 | pending | Network-isolated remote execution unverified. |
-| D00 | delivered | Existing Drive plan replaced in place by GitHub pointer; exact text readback, parent and owner-only sharing verified. This receipt commit awaits task/main CI. |
+| D00 | delivered | Existing Drive plan replaced in place by GitHub pointer; exact text readback, parent and owner-only sharing verified. Receipt `aed81ff76c4459c7dcc6b513e11c3b6c8a6ab1a1`; [task CI](https://github.com/datenfutter/datenfutter/actions/runs/44529090498) and [main CI](https://github.com/datenfutter/datenfutter/actions/runs/44529244680) passed. |
 | D01–D02 | pending | No current output replacements or derivative removals. |
 | R01–R06, Z01–Z02 | pending | Follow pilot and topic inventories. |
 
@@ -161,3 +162,7 @@ Align GitHub README/AGENTS/PLAN and Drive entry/index guidance. Retire conflicti
 - This committed ledger replaces parallel status-plan maintenance; private operational metadata stays private.
 - Reuse the existing integrated staging ref while deletion is unavailable; main-only closure remains outstanding.
 - Local verification, public integration, remote CI, editorial review, delivery and cleanup have separate gates.
+
+- I03: original downloaded HTML contains whitespace flagged by Git. Preserve its exact bytes; apply whitespace checks to authored files and validate raw evidence by original hashes.
+
+- I03 publication boundary: the current instruction authorized the GitHub task workflow, but automatic approval review rejected publishing original provenance without explicit payload/destination approval. Stop source uploads; retain the tested candidate and request the concrete 52-source-file disclosure decision. Dependent pilot integration/delivery remain blocked.
