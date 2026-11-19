@@ -1,145 +1,146 @@
-# Datenfutter: verified status and implementation plan
+# Datenfutter: current status and implementation plan
 
-Implementation started 19 November 2026, Asia/Shanghai, under the user-approved plan. Work proceeds in small commits with checks and verified pushes. The assessment below records the baseline observed before implementation.
+Implementation resumed 19 November 2026, Asia/Shanghai. Work is authorized and proceeds one checked commit and verified push at a time. Current status below is updated in place.
 
-**Implementation status**
+**The foundation is pushed and tested. Production migration has not started on the inspected branch, and the foundation is not yet integrated into main.** Original steps 1–2 are complete on the branch; steps 3–8, the remaining topics and Drive cleanup are pending. This is a milestone count, not a completion percentage.
 
-- Step 1: pushed and remote head verified (2d1100d).
-- Step 2: shared code, assets, tests and CI baseline imported; 64 tests pass locally in the declared environment; remote validation pending.
-- Steps 3–8: pending.
-- Remaining topic migrations and Drive cleanup: pending.
+Working folder: https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs
+Repository: https://github.com/datenfutter/datenfutter
 
-Source: [Datenfutter working folder](https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs). Destination: [datenfutter/datenfutter](https://github.com/datenfutter/datenfutter).
+**Verified current status**
 
-**Baseline assessment: the saved fuel snapshot is reproducible; implementation was absent from GitHub when assessed.** Finish the handover before extending the migration. Keep one current output per topic, language and post, with future revision history in Git.
-
-**Verified baseline before implementation**
-
-| Area | Evidence observed now | Status |
+| Area | Evidence | Status |
 | --- | --- | --- |
-| GitHub workspace | Main is at commit `8243682de9e878900c82c527d2bb22623fbf363e`, “Initialize Datenfutter repository”. Its tree contains only `.gitignore`. Only main was returned; no pull requests or Actions runs were returned. | Repository created; implementation not pushed to the inspected repository. |
-| Claimed local migration pilot | The previous plan reports a completed CLI, canonical layout, deterministic SVGs and regression checks. Its migrated checkout, `inventory.json` and `fuel-verification.json` were not supplied. No matching migration package was found in the Drive searches/index inspected. | Reported complete locally; not independently verified or available as a remote handover. |
-| Original DE/CH/LU archive | Downloaded the exact linked 18 November archive: 211 files. All 26 entries in `sources/retrievals.jsonl` resolve to raw files with matching SHA-256 and byte size. | Recovery input verified. |
-| Offline fuel preparation | Ran the archived preparation script. All 24 refresh CSVs, both refresh specifications and the refresh source register matched their pre-run bytes. Checks passed for 564 observations, six series, 94 months, 12 baseline months and composition reconciliation. | Current saved preparation reproduced; no new source refresh. |
-| Fuel plots and text | Rebuilt both three-slide posts. All six PNGs and all four caption/alt-text files matched the saved refresh bytes. | Current visual/text outputs reproduced. |
-| SVGs | None of the six rebuilt SVGs matched byte for byte. All matched after normalizing embedded render dates and generated element IDs. | Deterministic SVG generation still needs fixing in the recovered code, or verification in the unavailable pilot. |
-| Output layout | October outputs are in `previews/refresh-2026-11-18/`; older August outputs are in `posts/petrol/` and `posts/diesel/`. Both generations exist and differ. | Selection and consolidation required. A folder called posts is not proof of the latest output. |
-| Shared engine | All seven archived shared Python module hashes match their entries in the inspected Drive index. The saved entrypoint is `render.py`; the archive has no `datenfutter/__main__.py`. | Shared implementation recovered; the plan's new CLI is not verified in this saved version. |
-| Tests / CI | Drive contains ten test modules and historical passing reports. The fuel archive excludes that suite. No GitHub workflow runs exist. | Fresh full-suite and CI verification remain outstanding. |
-| Other topics | The Drive projects/packages listed below exist; they are absent from the inspected GitHub tree. | Saved in Drive; GitHub migration not completed. |
+| Step 1: policy and entry instructions | Commit `2d1100d9e947c76bb1c65e79334ed50742a21229`, `docs: record verified status and current-output policy`. | Pushed on `refactor/current-state`. |
+| Step 2: shared renderer and CI | Branch head `566bbf51b4cfe709aedf609e626c14e7fcbb9545`; 34 tracked files, shared brand/code, ten test modules and a small legacy input fixture. | Pushed and remotely verified. |
+| Baseline checks | Actions run `44439057460` succeeded. Its log reports **64 tests passed** under Python 3.12 with the declared renderer dependencies. | Renderer baseline verified; this job does not rebuild production projects. |
+| Integration | `main` remains at initialization commit `8243682de9e878900c82c527d2bb22623fbf363e`, containing only `.gitignore`. The PR listing returned no PRs. | Baseline not integrated. |
+| Project migration | Branch tree has no `projects/` files and no `datenfutter/__main__.py`. | Fuel import, preparation, CLI and final outputs remain pending. |
+| Fuel recovery input | Exact 18 November archive downloaded again: 211 files; archive hash matches the prior assessment. | Available and hash-verified. |
+| Evidence completeness | All 26 entries in `sources/retrievals.jsonl` and all 23 entries in `sources/retrieval-log.jsonl` resolve to matching raw bytes, SHA-256 and sizes. The package contains 49 raw files. | Both original logs must survive migration. Eleven distinct older raw hashes are absent from the current log. |
+| Current fuel selection | Two schema-0.4 refresh specs, 24 refresh CSVs, six PNG/SVG slide pairs and matching text/manifests. All 18 files listed in the refresh review match its hashes and sizes. | Select the snapshot covering January 2019–October 2026. Preserve its actual review state. |
+| Reproducibility | Live renderer code still writes wall-clock manifest timestamps and does not fix SVG IDs/date metadata. | Deterministic committed outputs remain unfinished. |
+| Drive cleanup | Fuel's old posts, refresh folder, exports and several delivery packages still coexist. Root checkpoint ZIPs also remain. | Final-only policy is documented in Git but not implemented in Drive. |
 
-The latest fuel review says “internally_checked; user requested reference style and authorized task”; its manifests say “preview”. Preserve that distinction. Successful reproduction, save authorization, design review and social publication are different facts. Do not infer explicit approval from a folder name or from this cleanup request.
+Step 2 remote validation is complete: 64 tests passed in Actions run 44439057460. The same 64 tests have passed again locally in the declared renderer environment before continuing.
 
-**Current-state retention policy**
+The prior attached assessment reports successful offline preparation and exact reproduction of six PNGs and four caption/alt-text files, with SVG differences limited to generated IDs/dates after normalization. This assessment reconfirmed archive/receipt/review hashes and inspected the implementation; it did **not** rerun the complete fuel preparation/render pipeline. Rerun it in the declared migration environment before promoting outputs.
 
-| Item | Rule |
+The fuel refresh review records “internally_checked; user requested reference style and authorized task”; its manifests say “preview”, and publication is recorded as “not published”. Moving files or passing CI does not change those facts.
+
+**Final-only retention rule**
+
+| Retain | Handling |
 | --- | --- |
-| Current PNGs and editable SVGs | One set at `projects/<topic>/posts/<language>/<post>/`, with stable numbered filenames. Replace the managed set when a new version is accepted. |
-| Caption, alt text and manifest | One matching current copy beside those plots. |
-| Specifications and processed data | One active set at stable paths. Record the selected vintage in metadata/source selection, not duplicate output directories. |
-| Previews, contact sheets and intermediate renders | Disposable local `build/` only. Do not commit or maintain them as another final set. |
-| Old plot revisions, dated exports, backup folders, palette demo images and delivery ZIP copies | Exclude from the new Git working tree. Remove obsolete Drive derivatives after the relevant migration and verification. Do not create an archive directory for them. |
-| Raw responses and retrieval receipts | Preserve immutable evidence, including recorded unsuccessful or superseded attempts. These are not plot backups. Every retained receipt must remain resolvable. |
-| Historical observations in a time series | Preserve the years needed by the current analysis. |
-| Review and migration records | Keep compact current review state and necessary original-path/hash mappings. Avoid numbered copies of reports. |
-| Git history | Keep ordinary history. Current-only files do not require history rewriting or force pushes. |
-| Palettes and approved logo assets | Retain reusable A/B/C configurations and approved masters. Remove obsolete rendered comparisons, not selectable palettes. |
+| Current plots and matching text | Exactly one current set per topic, language and post: numbered PNG/SVG files, caption, alt text and manifest. Replace that managed set at stable paths. |
+| Current inputs | One active source selection, preparation path, processed-data set and specification per language/post. Keep vintage in metadata. |
+| Raw evidence and original receipts | Preserve immutable responses and the logs that reference them, including older/failed attempts. Historical observations and dated source files remain valid evidence. |
+| Current review and delivery state | Keep concise records tied to exact file hashes and verified destinations. Preserve material decisions without keeping every obsolete report. |
+| Reusable brand assets | Keep the shared logo masters and accepted A/B/C palette configurations. |
+| Ordinary Git history | Let commits retain code/output revision history. Normal cleanup needs no history rewriting. |
 
-For the fuel pilot, the proposed active selection is the 18 November snapshot covering January 2019–October 2026. Preserve its actual review state. For topics with only an unreviewed draft, retain inputs and review state, render a current preview into `build/`, and do not invent an approved final.
+Remove superseded plot revisions, numbered backups, dated preview/export folders, palette comparison renders, contact sheets and redundant delivery ZIPs from the maintained project view. Temporary previews and exports belong in ignored `build/` and are disposable. Do not create an archive folder for old plots.
+
+Raw-source ZIPs and mixed recovery packages require a content check: remove a recovery package only after all needed unique evidence and receipts have a verified retained destination. Apply this by role and exact file identity, not by a blanket date or ZIP pattern.
 
 **Target layout**
 
 | Path | Responsibility |
 | --- | --- |
-| `datenfutter/` | One shared renderer, chart/data helpers, localization, provenance and small CLI. |
-| `brand/` | Shared typography, palettes and logo assets. |
-| `projects/<topic>/README.md` | Current scope, definitions, coverage and reproduction instructions. |
-| `projects/<topic>/prepare.py` | Offline topic preparation; source/country rules stay outside the generic renderer. |
-| `projects/<topic>/sources/source-register.json` | Current source definitions, selected receipt IDs, claim/method links and limitations. |
-| `projects/<topic>/sources/retrievals.jsonl`, `sources/raw/` | Original evidence and receipts. Preserve existing raw paths where receipts depend on them. |
-| `projects/<topic>/data/processed/` | Selected current derived tables. |
-| `projects/<topic>/specs/de/*.json`, `specs/en/*.json` | Current language-specific copy and chart specifications. |
-| `projects/<topic>/posts/<language>/<post>/` | Numbered PNG/SVG, caption, alt text and output manifest. |
-| `projects/<topic>/review.json` | Current checks and actual review state keyed to exact output hashes. |
-| `tests/` | Behavioral tests and small input fixtures, without galleries of obsolete production plots. |
-| `build/` | Ignored, disposable preparation/render/check output. |
+| `datenfutter/`, `brand/` | One shared renderer, helpers, localization, provenance, thin CLI and visual configuration. |
+| `projects/<topic>/README.md` | Scope, definitions, coverage, limitations and reproduction command. |
+| `projects/<topic>/prepare.py` | Offline preparation from selected evidence; topic rules stay here. |
+| `projects/<topic>/sources/source-register.json` | Current source definitions, selected receipt IDs, claim/method links and source-linked parameters. |
+| `projects/<topic>/sources/raw/` and receipt logs | Immutable evidence. Keep original receipt-relative paths; retain the fuel legacy log under its existing name. |
+| `projects/<topic>/data/processed/` | One selected derived-data set, using stable filenames such as `price-composition.csv`. |
+| `projects/<topic>/specs/<language>/<post>.json` | Current chart configuration and language-specific copy. |
+| `projects/<topic>/posts/<language>/<post>/` | `01.png`, `01.svg`, subsequent numbered slides, `caption.md`, `alt-text.md`, `manifest.json`. |
+| `projects/<topic>/review.json`, `delivery.json` | Actual review state and verified delivery, respectively. |
+| `tests/`, ignored `build/` | Behavioral tests/small fixtures; disposable build and comparison results. |
 
-Discover projects/posts from specifications where possible. Add a small recipe/config only for real inputs such as selected receipt IDs and source-linked parameters. Do not duplicate coverage, status and file lists across several registries.
+Draft-only topics keep inputs and honest review state; their previews remain in `build/`. A canonical output path does not itself mean user approval. Discover posts from their specs and maintain status in the relevant current record, avoiding parallel inventories of the same files.
 
-**Refactors and simplifications**
+**Refactor decisions**
 
-1. **Remove old-version dependencies before deleting old files.** The current `prepare_refresh.py` reads `posts/<post>/post.json` and `sources/split-source-register.json`, then changes old copy and dated paths. Make it read the selected current inputs directly. Otherwise removing the August specification breaks the October rebuild.
-2. **Make committed outputs deterministic.** Stabilize SVG IDs and remove wall-clock export timestamps from committed artifacts. Keep actual retrieval times and editorial dates intact; put transient run timing in CI/local logs. Check manifests from another checkout directory.
-3. **Reuse existing output protection.** `_publish` already stages renders, rejects another post/language's destination and removes obsolete managed slides. Preserve those behaviors and failure-preservation tests. Do not introduce another output-management framework. Its per-file replacement is not a transactional directory swap.
-4. **Use one build path.** A thin CLI should discover projects, build offline into `build/`, and compare reproduction with current committed outputs. Keep acquisition explicit and separate. Replace dated packaging scripts with an on-demand export only if needed; do not commit export ZIPs or preview HTML.
-5. **Share language-independent work after checking vintages.** German DK/NO/PL/CZ fuel is documented through September 2026; its saved English edition is documented through August. Verify and reconcile the difference before sharing processed data. Never silently use newer data with older English copy. Distinct current language editions are not backup versions.
-6. **Consolidate contradictory instructions.** `WORKFLOW.md` says palettes remain under discussion and later says A/B/C are accepted. It also requires retained preview revisions and dated exports. The current request replaces that output-retention rule. Keep concise agent instructions, one entry README, schema documentation and brand guidance with separate responsibilities. Update stale project skill guidance about renderer support and explanation blocks; avoid repeated policy text.
-7. **Remove legacy renderer paths last.** The saved `render.py` contains classic/legacy code alongside `editorial.py` and `charts.py`. Migrate active inflation/ECB specifications first, preserve their needed behavior, then remove unused schemas and duplicate rendering. Replace tests dependent on old root projects with small equivalent input fixtures.
+1. **Continue the existing baseline.** Shared code, brand, tests and CI are already imported. Recover any separately supplied pilot only if concrete files become available; an unavailable historical claim should not block the next bounded import.
+2. **Untie fuel preparation from old plots.** `prepare_refresh.py` currently reads old `posts/<post>/post.json`, copies `sources/split-source-register.json`, replaces August text and writes dated paths. Move the selected definitions/copy to current inputs and regenerate calculated fields explicitly. Remove those old dependencies before excluding their files.
+3. **Complete the dependency declaration.** Fuel preparation imports pandas and openpyxl; the current root requirements list only Matplotlib, NumPy and Pillow. Pin and verify the preparation dependencies in a small separate change.
+4. **Separate deterministic outputs from run logs.** Use stable SVG IDs and deterministic export metadata. Remove wall-clock render timestamps from committed manifests; preserve source-retrieval times, editorial dates and actual review/delivery times in their proper records. Verify builds in different checkout paths.
+5. **Reuse existing output ownership checks.** `_publish` already stages rendering, checks post/language ownership and removes obsolete managed slides. Preserve these behaviors. Its replacements are per-file; existing failure-preservation tests do not prove a transactional directory swap or recovery from an interrupted promotion.
+6. **Make build/check simple.** A thin CLI prepares and renders into `build/`; checking compares a rebuilt set against the canonical set and fails on missing, extra or changed managed files. Source acquisition stays explicit. A green unit suite or an empty project list must not be reported as complete production reproduction.
+7. **Give each record one purpose.** Source register = selected evidence and meaning; manifest = deterministic inputs/outputs; review = actual editorial checks/decisions; delivery = verified external save. Keep current policy in concise entry instructions and dedicated schema/brand documentation. Replace stale Drive requirements to preserve output revisions and checkpoints when the relevant handover is performed.
+8. **Consolidate languages after checking vintages.** Put DE/EN specs and posts under the same topic and share matching evidence/data. The prior assessment reports September/August differences for DK/NO/PL/CZ; verify them before sharing its processed tables.
+9. **Retire compatibility code last.** Inventory active inflation/ECB work, migrate retained specifications, then remove unused classic/legacy branches. Keep their relevant behavioral tests using small fixtures. Manifest size reduction and broader chart refactors can follow evidence of a real maintenance need; they need not delay the pilot.
 
-Keep the current design unchanged during this refactor: cream `#FAF8EF`, navy `#1C2D57`, black general text, DejaVu Sans, the existing df logo, bold navy pagination, one descriptive block and localized date footer. The supplied reference images do not require a redesign here.
+Preserve the current design throughout: 1080×1350, cream `#FAF8EF`, navy `#1C2D57` accents, black text, DejaVu Sans, existing df logo, bold pagination, one descriptive block and localized lower-left date. Keep full literal source URLs in captions. The reference images establish continuity, not a redesign task.
 
-**Small commits and pushes**
+**Remaining implementation in small commits**
 
-These are proposed steps, not completed changes. First recover the previously reported migrated pilot if it becomes available, compare it with the verified archive, and reuse working changes. Do not recreate functioning code merely because its package was unavailable during this assessment.
+These are proposed actions. Reuse the original step numbers so progress remains comparable. Each row is one independently checked commit and normal push; split a row further if it combines unrelated failures.
 
-| Step / proposed commit | Bounded change | Gate before commit and push |
+| Step | Proposed commit | Scope and gate |
 | --- | --- | --- |
-| 1. `docs: record verified status and current-output policy` | Commit the current plan, selected fuel vintage and concise canonical layout/retention policy. Clearly mark unverified historical claims. | Source links, identifiers and selected paths checked; no plot/data or publication-state change. |
-| 2. `build: import shared renderer and establish CI baseline` | Import shared code, brand, dependencies and tests; recover the necessary small test inputs. Add a Python 3.12 baseline CI job. | Imported suite passes locally and remotely. Record its actual count rather than copying an old report. |
-| 3. `data: import fuel evidence and current specifications` | Import receipt/raw closure, current source register, 24 selected CSVs and two German specs at canonical paths. Record old paths/hashes and omissions. Exclude old generated plots. | All 26 current-log entries remain resolvable; hashes/sizes pass; both specs render. Audit the separate older receipt log before omitting any evidence it references. |
-| 4. `refactor: make fuel preparation independent of old revisions` | Replace old-spec/split-register dependencies with one offline preparation path and explicit selected parameters. Preserve formulas and limitations. | All 24 CSVs reproduce exactly; coverage, baseline and reconciliation checks pass; preparation makes no network requests. |
-| 5. `fix: make SVG and manifest output reproducible` | Stabilize IDs, metadata and any checkout-dependent fields. Preserve substantive dates and source identities. | Two builds in different directories match; PNG/text match the reference. SVG differences are limited to documented metadata/ID normalization. |
-| 6. `refactor: add one project build and check entrypoint` | Add/recover `python -m datenfutter` with project discovery and offline build/check commands. Reuse existing helpers. | One project and all work; invalid inputs preserve existing output; shorter posts remove only obsolete owned slides; language/post ownership checks remain. |
-| 7. `posts: keep selected fuel outputs at canonical paths` | Commit six PNGs, six SVGs, two captions, two alt-text files and two manifests in the German final-output paths. Align current review metadata. | Reproduction passes; inspect all six full-size and phone-size images and complete captions. Preserve the actual review status and relevant existing authorization. |
-| 8. `ci: enforce current-only output layout` | Add a focused layout check and enable complete fuel reproduction checks. Align workflow examples. | CI rejects obsolete output locations/unmanaged final files but permits raw source archives and source dates. A clean checkout rebuild leaves tracked files unchanged. |
+| Next | `docs: reconcile verified migration status` | Update the current plan/README with the branch, green CI and remaining work. Verify links/status, push and integrate the tested foundation before growing the migration branch further. |
+| 3a | `data: import fuel evidence and original receipts` | Import both logs and their 49 referenced raw paths, plus current source selection and necessary methodology. Verify every hash/size and original timestamp; retain compact old-path/hash mapping. Exclude generated historical plots. |
+| 3b | `data: add current fuel tables and German specs` | Import the 24 selected CSVs and two refresh specs at stable canonical paths. Check every source/data/logo reference and render both posts into `build/`. |
+| 4a | `build: declare fuel preparation dependencies` | Pin pandas/openpyxl and verify a clean environment installs and imports the required packages. Existing unit CI remains green. |
+| 4b | `refactor: prepare fuel from current inputs` | Establish one offline preparation path without old specs, old source cards or dated-path replacements. Reproduce all 24 CSVs; verify six series × 94 months, twelve baseline months, gaps/duplicates and composition reconciliation. Keep source-linked assumptions and limitations. |
+| 5a | `fix: stabilize SVG export metadata and IDs` | Make repeated SVGs identical. Verify PNG/text content is preserved; inspect any visual difference. Run the shared suite and fuel renders. |
+| 5b | `fix: make output manifests deterministic` | Remove volatile fields from committed manifests and verify portable references. Two builds in distinct directories must match all managed output bytes. Keep factual dates unchanged. |
+| 6a | `feat: add offline project build command` | Discover specs and invoke preparation/rendering into `build/` for one project or all migrated projects. Verify selection, clear errors and unchanged canonical outputs on failure. |
+| 6b | `feat: check rebuilt posts against current outputs` | Compare complete expected file sets and hashes without overwriting finals. Verify missing/extra/mismatched files fail and exact sets pass; retain ownership and shorter-post checks. |
+| 7a | `posts: retain current German petrol outputs` | Add three PNG/SVG pairs, caption, alt text and manifest at the canonical petrol path. Check reproduction, all images at full/phone size and the complete caption; record actual review state. |
+| 7b | `posts: retain current German diesel outputs` | Do the equivalent for diesel. The pilot then has six PNGs, six SVGs, two captions, two alt texts and two manifests, without duplicate output generations. |
+| 8a | `ci: enforce canonical output locations` | Add a focused layout check. Reject backup/preview/export derivatives and unmanaged final files; permit raw evidence, meaningful fixtures and draft-only projects. |
+| 8b | `ci: verify offline fuel reproduction` | Run preparation, rendering and comparison in clean CI. Verify tracked files stay unchanged; the same command must work from a clean checkout. |
+| Handover | `docs: record verified fuel handover` | After remote checks, update Drive's selected current files, remove verified superseded derivatives and update entry instructions/index by grounded IDs. Verify Drive results, then commit the compact delivery/status record. |
 
-Do not import all historical plots in step 3 just to delete them later. If a recovered pilot already contains them, remove them in a separate cleanup commit after the selected replacements reproduce.
+For canonical-path changes, spec and manifest hashes will change legitimately. Compare PNG/text to the selected source package and document expected structural metadata changes; do not mask substantive chart changes as normalization.
 
-Then migrate one topic at a time. Normally use **two commits per topic**: evidence/preparation/specifications, followed by verified current outputs and status update. Split further when data reconciliation or schema conversion is substantive.
+**Commit and push routine**
 
-| Order | Topic | Evidence and condition |
+Start from the latest verified remote head. Use one short-lived branch per coherent slice, with one or a few small commits. For each commit:
+
+1. Inspect the diff and run its stated gate. Shared renderer/schema/brand changes also check every migrated project.
+2. Stage explicit paths, commit with the bounded purpose, and push normally.
+3. Verify the exact remote commit SHA and the CI result for that SHA. Resolve failures before adding the next step.
+4. Update the current status, then integrate completed slices before starting unrelated work.
+
+Local checks, pushed state, remote checks, integration, editorial review and Drive delivery are separate statuses. Remote results that occur after a commit are recorded in the next ordinary status update; avoid extra commits solely to chase self-referential commit hashes. Retain the useful small commits and ordinary Git history.
+
+**After the fuel pilot**
+
+Migrate one topic at a time, normally an inputs/preparation/specification commit followed by current outputs and verification. Split source reconciliation into its own change.
+
+| Order | Topic | Required check before consolidation |
 | --- | --- | --- |
-| 1 | `fuel-prices-dk-no-pl-cz` | A six-slide German refresh package and an English project exist. Verify September/August differences, Norway's unresolved allocation and exact source reuse. |
-| 2 | `unemployment-comparison` | German and English folders exist. Preserve breaks and verify shared vintage/definitions. |
-| 3 | `unemployment-de-ch-dk-no` | November archive, two PNGs and a caption are present. Verify definitions, coverage and breaks. |
-| 4 | `income-de-nl-pl` | November archive, two PNGs and a caption are present. Preserve income-year/survey-year and EUR/PPS distinctions. |
-| 5 | `vehicle-registrations-de-2016-2026` | Research archive, source/data folders and review records exist. The index says previews await review. Migrate inputs first; do not invent final approval. Keep full-year and partial-year comparisons separate. |
-| 6 | Inflation / ECB legacy materials | Complete evidence and active-project audit still needed. A test fixture is not a production migration. Migrate retained active work before removing compatibility code. |
+| 1 | `fuel-prices-dk-no-pl-cz`, DE/EN | Reconcile selected vintages and the recorded Norway allocation limitation. |
+| 2 | `unemployment-comparison`, DE/EN | Match definitions/vintages; retain recorded series breaks. |
+| 3 | `unemployment-de-ch-dk-no` | Verify source comparability, coverage and gaps. |
+| 4 | `income-de-nl-pl` | Preserve income-year/survey-year and EUR/PPS distinctions. |
+| 5 | `vehicle-registrations-de-2016-2026` | Keep full-year and partial-year comparisons separate; respect the recorded pending review. |
+| 6 | Retained inflation/ECB work | Inventory active content before removing its compatibility code. |
 
-Non-pilot package existence was checked; complete contents and reproducibility were not audited here. Folder presence alone does not justify a completion percentage.
+The live Drive listings confirm six German project folders and two English project folders. Detailed reproducibility of non-pilot topics was not audited here. This inventory does not certify unattached packages from other conversations.
 
-Finish with separate commits for unused legacy renderer/test-dependency removal, then final documentation/status consolidation. Run affected-project checks for project changes; run all migrated projects after shared renderer, schema or brand changes.
+**Drive cleanup and completion**
 
-**Commit/push routine**
+Git becomes the working source for migrated code/specifications/data selection. Drive becomes the current delivery view for those topics and remains the working source for unmigrated topics. Update existing files by identity where appropriate and preserve sharing.
 
-Use a short-lived branch for each coherent slice, starting from the latest verified remote state. For every step: inspect the diff, run its gate, stage explicit paths, create one descriptive commit, push normally, and verify remote head SHA and CI. Resolve failures before stacking more work. Integrate a completed slice before starting the next, retaining useful small-commit history. Do not force-push or bulk-stage downloaded packages and caches.
+Clean up per topic only after a clean checkout reproduces its selected outputs and remote checks pass. Check recovery packages for unique evidence before removing them; prefer recoverable removal. Update cross-topic bundles only after every included topic's evidence has a retained destination. Do not duplicate final plots into a replacement archive hierarchy.
 
-A step is complete only when committed, pushed and remotely verified. Locally built, saved to Drive, pushed and reviewed are separate statuses. Update migration status in the commit that implements the work.
+The work is complete when every retained topic rebuilds offline, every final topic/language/post has one current managed set, no current build depends on an obsolete plot/spec revision, repeated builds leave tracked files unchanged, remote integration/checks are verified, and Drive's current files and instructions match the handover. Drafts remain clearly identified. No social publication is implied.
 
-**Drive cleanup and handover**
+**Evidence links**
 
-Clean up each topic after a clean checkout reproduces the selected outputs and the remote commit/checks are verified. Git becomes the working source for migrated code, specifications and data selection. Drive remains the current-file view and the source for unmigrated topics; avoid two editable code trees.
-
-Use grounded Drive IDs to retain/update selected final files and remove superseded plot derivatives, old preview directories and redundant delivery packages. Prefer recoverable removal where supported. Verify that every needed unique source byte and receipt survives before removing a package. Never delete by a blanket ZIP/date pattern: source datasets can be ZIPs and dated source evidence is intentional. Do not create another backup/archive folder.
-
-Record actual Drive results separately from the preceding Git commit; pushing does not prove Drive cleanup happened. Update the existing Drive index and entry instructions to point to current files and the repository. No Drive removal or reorganization occurred during this assessment.
-
-**Completion criteria**
-
-- A clean clone prepares and renders every migrated project offline from retained evidence.
-- Each final topic/language/post has exactly one current output set; draft-only work retains honest review state.
-- No committed preview/revision/backup/export copies or generated delivery ZIPs remain; raw archives and meaningful small input fixtures are allowed.
-- Preparation and current specs do not depend on superseded plot versions or old caption text.
-- Repeated builds are deterministic and leave the working tree clean; original source dates and receipt history remain unchanged.
-- Tests retain coverage for gaps/breaks, units/baselines, stack totals, citations, localization, output ownership and failed-build preservation.
-- Remote commits and CI are verified; Drive's current-file view matches the handover; instructions describe the supported workflow.
-
-**Assessment evidence**
-
-- Attached `PLAN.md`: the previous 18 November migration plan.
-- [Repository](https://github.com/datenfutter/datenfutter), [observed initialization commit](https://github.com/datenfutter/datenfutter/commit/8243682de9e878900c82c527d2bb22623fbf363e), and live tree/branches/pull-request/Actions API reads.
-- [Working folder](https://drive.google.com/drive/folders/1K-NwNYx3TcyCWFCtuaCVljVi-bqEXizs), [Drive index](https://drive.google.com/file/d/13-f7SJB9zMjGvSACEGuSRl3-LWiOoUO8/view), and direct project-folder listings.
-- [Reproduced fuel archive](https://drive.google.com/file/d/1YsE9afVdFN-m0VIYwcwEJ5l9poCdPWf5/view), SHA-256 `c5b4dd172488e7021cdf3632198e7ba70c5a1e180907927e2029155712fc03be`.
-- [Project instructions](https://drive.google.com/file/d/1GoqKT1xJQ3zLfjXF918g3t4_34OyslZI/view), [workflow](https://drive.google.com/file/d/1zbIzKU2vXUp9JITRR2nCDpiXw9s41Ybm/view), [structure](https://drive.google.com/file/d/16LDMTgMnJHFtxvlk1mQ6GIJSz290HDsD/view), [brand guide](https://drive.google.com/file/d/1CcHbA7CBaxpGK8zbBQ4UgqRuLDH4n-b-/view), and selected test-module inspection.
-
-Reproduction runtime: Python 3.12.14, Matplotlib 3.10.8, NumPy 2.3.5, pandas 2.2.3, openpyxl 3.1.5, Pillow 13.0.0. The archive pins Pillow 12.3.0; exact PNG/text matches were observed in this runtime. Restore and verify the declared environment for migration CI rather than silently changing dependency policy.
+- Branch snapshot: https://github.com/datenfutter/datenfutter/tree/566bbf51b4cfe709aedf609e626c14e7fcbb9545
+- Policy commit: https://github.com/datenfutter/datenfutter/commit/2d1100d9e947c76bb1c65e79334ed50742a21229
+- Renderer baseline commit: https://github.com/datenfutter/datenfutter/commit/566bbf51b4cfe709aedf609e626c14e7fcbb9545
+- Successful CI run and test log: https://github.com/datenfutter/datenfutter/actions/runs/44439057460
+- Drive index: https://drive.google.com/file/d/13-f7SJB9zMjGvSACEGuSRl3-LWiOoUO8/view
+- Fuel refresh folder: https://drive.google.com/drive/folders/1BWtE1pEt0ZLNILHhmyAilTBfw7GlWjLB
+- Fuel recovery archive: https://drive.google.com/file/d/1YsE9afVdFN-m0VIYwcwEJ5l9poCdPWf5/view
+- Archive SHA-256: `c5b4dd172488e7021cdf3632198e7ba70c5a1e180907927e2029155712fc03be`.
+- Drive workflow: https://drive.google.com/file/d/1zbIzKU2vXUp9JITRR2nCDpiXw9s41Ybm/view
+- Drive project structure: https://drive.google.com/file/d/16LDMTgMnJHFtxvlk1mQ6GIJSz290HDsD/view
+- Drive brand guide: https://drive.google.com/file/d/1CcHbA7CBaxpGK8zbBQ4UgqRuLDH4n-b-/view
