@@ -1,0 +1,458 @@
+{
+  "project": "datenfutter",
+  "version": "0.4.0",
+  "post_id": "annual-trend",
+  "review_status": "preview",
+  "language": "de",
+  "publication": "datenfutter",
+  "matplotlib_version": "3.10.8",
+  "font": "DejaVu Sans",
+  "typography": {
+    "title_px": 58,
+    "subtitle_px": 25,
+    "axis_tick_px": 21
+  },
+  "typography_base": null,
+  "palette_id": "a",
+  "palette_status": "approved-palette-option",
+  "canvas": [
+    1080,
+    1350
+  ],
+  "data_files": [
+    {
+      "file": "../../data/processed/de.csv",
+      "sha256": "3f8ac306f48b29bb474fbcd52397088da800cc4f329f6e791536825ca0689d49"
+    },
+    {
+      "file": "../../data/processed/ch.csv",
+      "sha256": "692decfb17e341610ee5870a679cb22dc67d0dca93b8a6375b198d151ff6a1d6"
+    },
+    {
+      "file": "../../data/processed/dk.csv",
+      "sha256": "2e0b3462399a9eadc3f351b5cce1382793f69fb794568e571f7f620a3ea22d47"
+    },
+    {
+      "file": "../../data/processed/no.csv",
+      "sha256": "4c9201b104773404032b216203b356166c364749256c6a7ac3655151532e2d11"
+    }
+  ],
+  "logo": {
+    "file": "../../../../brand/df-circle-white.png",
+    "sha256": "0fa8f72984c4a35a75d2bf45b18a6bee2a85a8676dbeea35345225e365ccefe4"
+  },
+  "spec_sha256": "93699c128f29fc9c1f06ab7db1f5e6c24ef8c37ea17eb3718907dda15c8418b5",
+  "brand_sha256": "d1ac3b46e5a8b540ebcdb03fd3b1affdf2615fea50877a1beb95951d5c4a5649",
+  "sources_sha256": "dd8c70f6fc3b5f8ec28cfc1de9fdb9eff97ac524963ee2013e2b6c69d294f116",
+  "sources": [
+    {
+      "id": "eurostat-une-rt-a",
+      "publisher": "Eurostat",
+      "title": "Unemployment by sex and age – annual data (une_rt_a)",
+      "short_title": "une_rt_a",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_a/default/table?lang=en",
+      "download_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?lang=en&freq=A&age=Y15-74&unit=PC_ACT&sex=T&geo=DE&geo=CH&geo=DK&geo=NO&sinceTimePeriod=2015&untilTimePeriod=2025",
+      "doi": "https://doi.org/10.2908/UNE_RT_A",
+      "retrieved_at": "2026-11-20T00:42:06.099358+00:00",
+      "updated_at": "2026-11-06T23:00:00+0100",
+      "coverage_start": "2015-01-01",
+      "coverage_end": "2025-12-31",
+      "metric": "Unemployed people aged 15–74 as a percentage of the labour force, both sexes, annual LFS estimates",
+      "unit": "% of labour force",
+      "method": "Decode JSON-stat dimensions by their category indexes. Select DE, CH, DK, NO and 2016–2025; preserve source rates and flags without interpolation or aggregation. Dates YYYY-01-01 are plotting positions for full-year observations, not January measurements.",
+      "raw_file": "raw/20261120T004206Z/une_rt_a.json",
+      "raw_sha256": "c8183a91052d79380afda8fb66e41e0f78b0f92a6ced15d8da6c887ce2de8794",
+      "reuse_note": "Eurostat reuse policy; attribution required. https://ec.europa.eu/eurostat/help/copyright-notice",
+      "limitations": [
+        "Survey estimates, not registered unemployment.",
+        "Source break flags: DK 2016, 2017, 2023; DE 2020. Comparisons across these boundaries require caution.",
+        "2015 is retained in the original response but excluded from this ten-year plot.",
+        "Annual results are not calculated here by averaging monthly rates."
+      ]
+    },
+    {
+      "id": "eurostat-lfs-methods",
+      "publisher": "Eurostat",
+      "title": "LFS main indicators – reference metadata",
+      "short_title": "LFS-Methodik",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/lfsi_esms.htm",
+      "retrieved_at": "2026-11-20T00:43:27.896045+00:00",
+      "method": "Definitions, annual compilation and comparability documentation reviewed on retrieval date.",
+      "metadata_updated": "2026-09-11"
+    }
+  ],
+  "citations": {
+    "eurostat-une-rt-a": 1,
+    "eurostat-lfs-methods": 2
+  },
+  "renderer_files": {
+    "editorial.py": "8c7d0e3dad84e86575c8c72fb9066fecc2361104332876728fa937e97969325c",
+    "charts.py": "bc0e145bcc5f54dd696fd209a192795637166b2e8ac6ffade315c2f93173659f",
+    "render.py": "9fbb3bda4d9df203bd08db6665940cf2135db26a8b2148bbd278986d36d85d76",
+    "data.py": "f8d83b3e0cb4f4dcc899482ea2b326c77f03c9c8a1203dcde4b28d6835989b35",
+    "localization.py": "057353fa0e252fac1e20865e7a81b81b9874f00964d116b74efc0654f9a2aecc"
+  },
+  "slides": [
+    {
+      "type": "line",
+      "series": [
+        {
+          "id": "de",
+          "label": "Deutschland",
+          "color": "#1C2D57",
+          "linestyle": "-",
+          "marker": "o",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ],
+          "flags": {
+            "2020-01-01": "b"
+          },
+          "dates": [
+            "2016-01-01",
+            "2017-01-01",
+            "2018-01-01",
+            "2019-01-01",
+            "2020-01-01",
+            "2021-01-01",
+            "2022-01-01",
+            "2023-01-01",
+            "2024-01-01",
+            "2025-01-01"
+          ],
+          "values": [
+            3.9,
+            3.5,
+            3.2,
+            2.9,
+            3.6,
+            3.6,
+            3.1,
+            3.1,
+            3.5,
+            3.8
+          ],
+          "break_dates": [
+            "2020-01-01"
+          ],
+          "segments": [
+            {
+              "dates": [
+                "2016-01-01",
+                "2017-01-01",
+                "2018-01-01",
+                "2019-01-01"
+              ],
+              "values": [
+                3.9,
+                3.5,
+                3.2,
+                2.9
+              ]
+            },
+            {
+              "dates": [
+                "2020-01-01",
+                "2021-01-01",
+                "2022-01-01",
+                "2023-01-01",
+                "2024-01-01",
+                "2025-01-01"
+              ],
+              "values": [
+                3.6,
+                3.6,
+                3.1,
+                3.1,
+                3.5,
+                3.8
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ch",
+          "label": "Schweiz",
+          "color": "#A85736",
+          "linestyle": "-",
+          "marker": "o",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ],
+          "flags": {},
+          "dates": [
+            "2016-01-01",
+            "2017-01-01",
+            "2018-01-01",
+            "2019-01-01",
+            "2020-01-01",
+            "2021-01-01",
+            "2022-01-01",
+            "2023-01-01",
+            "2024-01-01",
+            "2025-01-01"
+          ],
+          "values": [
+            5.0,
+            4.8,
+            4.7,
+            4.4,
+            4.8,
+            5.1,
+            4.1,
+            4.1,
+            4.4,
+            4.9
+          ],
+          "break_dates": [],
+          "segments": [
+            {
+              "dates": [
+                "2016-01-01",
+                "2017-01-01",
+                "2018-01-01",
+                "2019-01-01",
+                "2020-01-01",
+                "2021-01-01",
+                "2022-01-01",
+                "2023-01-01",
+                "2024-01-01",
+                "2025-01-01"
+              ],
+              "values": [
+                5.0,
+                4.8,
+                4.7,
+                4.4,
+                4.8,
+                5.1,
+                4.1,
+                4.1,
+                4.4,
+                4.9
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dk",
+          "label": "Dänemark",
+          "color": "#526B73",
+          "linestyle": "-",
+          "marker": "o",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ],
+          "flags": {
+            "2016-01-01": "b",
+            "2017-01-01": "b",
+            "2023-01-01": "b"
+          },
+          "dates": [
+            "2016-01-01",
+            "2017-01-01",
+            "2018-01-01",
+            "2019-01-01",
+            "2020-01-01",
+            "2021-01-01",
+            "2022-01-01",
+            "2023-01-01",
+            "2024-01-01",
+            "2025-01-01"
+          ],
+          "values": [
+            6.0,
+            5.8,
+            5.1,
+            5.0,
+            5.6,
+            5.1,
+            4.5,
+            5.1,
+            6.2,
+            6.4
+          ],
+          "break_dates": [
+            "2016-01-01",
+            "2017-01-01",
+            "2023-01-01"
+          ],
+          "segments": [
+            {
+              "dates": [
+                "2016-01-01"
+              ],
+              "values": [
+                6.0
+              ]
+            },
+            {
+              "dates": [
+                "2017-01-01",
+                "2018-01-01",
+                "2019-01-01",
+                "2020-01-01",
+                "2021-01-01",
+                "2022-01-01"
+              ],
+              "values": [
+                5.8,
+                5.1,
+                5.0,
+                5.6,
+                5.1,
+                4.5
+              ]
+            },
+            {
+              "dates": [
+                "2023-01-01",
+                "2024-01-01",
+                "2025-01-01"
+              ],
+              "values": [
+                5.1,
+                6.2,
+                6.4
+              ]
+            }
+          ]
+        },
+        {
+          "id": "no",
+          "label": "Norwegen",
+          "color": "#626C80",
+          "linestyle": "--",
+          "marker": "o",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ],
+          "flags": {},
+          "dates": [
+            "2016-01-01",
+            "2017-01-01",
+            "2018-01-01",
+            "2019-01-01",
+            "2020-01-01",
+            "2021-01-01",
+            "2022-01-01",
+            "2023-01-01",
+            "2024-01-01",
+            "2025-01-01"
+          ],
+          "values": [
+            4.9,
+            4.4,
+            4.0,
+            3.9,
+            4.7,
+            4.4,
+            3.2,
+            3.6,
+            4.0,
+            4.5
+          ],
+          "break_dates": [],
+          "segments": [
+            {
+              "dates": [
+                "2016-01-01",
+                "2017-01-01",
+                "2018-01-01",
+                "2019-01-01",
+                "2020-01-01",
+                "2021-01-01",
+                "2022-01-01",
+                "2023-01-01",
+                "2024-01-01",
+                "2025-01-01"
+              ],
+              "values": [
+                4.9,
+                4.4,
+                4.0,
+                3.9,
+                4.7,
+                4.4,
+                3.2,
+                3.6,
+                4.0,
+                4.5
+              ]
+            }
+          ]
+        }
+      ],
+      "scales": {
+        "value_axis": "y",
+        "value_limits": [
+          0.0,
+          8.0
+        ],
+        "date_window": [
+          "2016-01-01",
+          "2025-01-01"
+        ],
+        "x_label_format": "auto",
+        "includes_zero": true,
+        "value_ticks": [
+          0.0,
+          2.0,
+          4.0,
+          6.0,
+          8.0
+        ]
+      },
+      "data_files": [
+        "../../data/processed/de.csv",
+        "../../data/processed/ch.csv",
+        "../../data/processed/dk.csv",
+        "../../data/processed/no.csv"
+      ],
+      "statements": {
+        "subtitle": {
+          "text": "Erwerbslose in % der Erwerbspersonen (15–74 Jahre).\nJahreswerte 2016–2025, beide Geschlechter.",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ]
+        },
+        "note": {
+          "text": "Reihenbrüche: Dänemark 2016/17/23, Deutschland 2020.\nLinien an den betroffenen Übergängen unterbrochen.",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ]
+        },
+        "alt_text": {
+          "text": "Liniendiagramm der jährlichen Erwerbslosenquote für 15- bis 74-Jährige in Deutschland, der Schweiz, Dänemark und Norwegen, 2016–2025. In allen vier Ländern steigen die Quoten 2024 und 2025. Die Endwerte 2025 sind Deutschland 3,8 %, Schweiz 4,9 %, Dänemark 6,4 % und Norwegen 4,5 %. Die y-Achse reicht von 0 bis 8 %. Punkte zeigen Jahreswerte. Die gestrichelte Linie kennzeichnet Norwegen. Eurostat-Reihenbrüche unterbrechen die Linien in Dänemark 2017 und 2023 sowie in Deutschland 2020; auch der erste dänische Wert 2016 ist als Reihenbruch markiert. Quelle: Eurostat une_rt_a.",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ]
+        },
+        "end_label_heading": {
+          "text": "2025",
+          "source_ids": [
+            "eurostat-une-rt-a"
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "file": "01.png",
+      "sha256": "82b2a74236a851a0843d832c77054a8ae5d770df4238479a525df899a4761968"
+    },
+    {
+      "file": "01.svg",
+      "sha256": "4a02696d4f488683d270039152238a839c064b84bd076f9df39df0d50e952ef1"
+    },
+    {
+      "file": "caption.md",
+      "sha256": "95270693e9d5c2738a3381975655fe80173b70aea02f26dc4d3889a9cb7a767b"
+    },
+    {
+      "file": "alt-text.md",
+      "sha256": "55bf8f0faaf0b00870fb47c5488df4f1d43dda9ea5b47edddc453655d649c8cc"
+    }
+  ]
+}

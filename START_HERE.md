@@ -2,8 +2,10 @@
 
 GitHub `main` is canonical. Read `AGENTS.md`, `README.md`, then `PLAN.md` and
 resume its next executable task. Use the relevant project README, source
-register and review record. Retrieve unmigrated inputs from the working Drive
-folder through the Google Drive plugin; older Drive instructions are superseded.
+register and review record. Retrieve the working Drive folder through the Google
+Drive plugin to identify a topic, then research and rebuild it afresh. Do not copy
+old Drive data, specifications, captions, code or outputs. The previous import
+queue is paused; follow the current fresh-rebuild tasks in PLAN.
 
 German Datenfutter and English Datafodder share one renderer and brand.
 Current specifications belong in `projects/<topic>/specs/<language>/<post>.json`;

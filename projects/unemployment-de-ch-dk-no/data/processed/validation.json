@@ -1,0 +1,70 @@
+{
+  "source_id": "eurostat-une-rt-a",
+  "raw_sha256": "c8183a91052d79380afda8fb66e41e0f78b0f92a6ced15d8da6c887ce2de8794",
+  "source_updated": "2026-11-06T23:00:00+0100",
+  "countries": [
+    "DE",
+    "CH",
+    "DK",
+    "NO"
+  ],
+  "years": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "observations": 40,
+  "missing_observations": 0,
+  "unit": "PC_ACT",
+  "breaks": [
+    {
+      "geo": "DE",
+      "year": 2020,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2016,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2017,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2023,
+      "flag": "b"
+    }
+  ],
+  "flags": [
+    {
+      "geo": "DE",
+      "year": 2020,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2016,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2017,
+      "flag": "b"
+    },
+    {
+      "geo": "DK",
+      "year": 2023,
+      "flag": "b"
+    }
+  ]
+}

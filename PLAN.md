@@ -1,9 +1,44 @@
 # Datenfutter execution plan
 
-Updated 19 November 2026 (Asia/Shanghai). GitHub `main` is the canonical source
+Updated 20 November 2026 (Asia/Shanghai). GitHub `main` is the canonical source
 for instructions, implementation, current outputs and this ledger.
 
 ## Current decision
+
+The user's 20 November instruction is to redo existing Drive plot topics from
+fresh authoritative research, construct clean project directories and push the
+result to GitHub, starting with one plot. Do not copy data, specifications, code
+or exports from Drive. Drive is used to identify the topic only. Reuse the shared
+renderer and brand already in GitHub.
+
+This instruction supersedes the previous import-first priority. The M01–M05
+import queue and subsequent bulk migration sequence below are paused, retained
+as history rather than executable instructions. Do not resume the fuel import
+automatically after completing the fresh pilot.
+
+## Fresh-source rebuild
+
+| Task | Scope | State and acceptance evidence |
+| --- | --- | --- |
+| F01 | Re-research DE/CH/DK/NO annual unemployment; create one German 2016–2025 trend plot with fresh Eurostat evidence, receipt, source register, separate acquisition, offline preparation, current outputs and review record. | Implemented in this change. Fresh Eurostat response: 40 selected values; 96 tests pass; build/check/layout pass; raw-only offline verification matches all 6 derived files and 5 current output files byte for byte. Full-size and 360 px image, caption and alt text inspected; evidence independently checked. User editorial approval and social publication remain unclaimed. Remote commit and CI are verified after this commit, separately from these local results. |
+
+F01 acceptance: `python -m unittest discover -s tests -v`,
+`python -m datenfutter build unemployment-de-ch-dk-no`,
+`python -m datenfutter check unemployment-de-ch-dk-no`,
+`python -m datenfutter layout` and
+`python projects/unemployment-de-ch-dk-no/verify.py`. The project verifier must
+exclude saved processed tables from its preparation workspace and compare full
+derived-data and post file sets and bytes. Inspect the image at full resolution
+and phone width with its complete caption and alt text; record hashes and actual
+review status without inventing user approval.
+
+Next execution step for this change: push the locally verified F01 implementation
+to main using the observed remote head, then verify that exact commit and CI.
+Do not recreate F01 when resuming; first inspect the live commit and CI.
+After this pilot, the user selects the next plot; do not start another topic or
+restart the paused import queue automatically.
+
+## Previous integration decision (historical; import queue paused)
 
 The user authorized integration of all existing branch work and the recovered
 fuel implementation into main, including the original evidence and retrieval
@@ -20,7 +55,8 @@ Drive topics are still pending; merging existing work does not migrate them.
 ## Resume protocol
 
 1. Read this file from current main, then the next executable task. Re-read the
-   remote head and start with a clean checkout. Reuse the verified final code.
+   remote head and start with a clean checkout. Reuse the verified shared code;
+   acquire and prepare topic data afresh under the current instruction.
 2. Change only that task's paths. Use one coherent commit, explicit staging and
    the stated acceptance command. Inspect exit status and nonzero test count.
 3. Update this ledger in the same commit. Publish with a non-forced update
@@ -34,7 +70,7 @@ Drive topics are still pending; merging existing work does not migrate them.
    Source evidence, local tests, remote CI, editorial review and social posting
    are distinct; no merge creates editorial approval or social publication.
 
-## Consolidation tasks
+## Previous consolidation tasks (paused)
 
 | Task | Scope | State and acceptance evidence |
 | --- | --- | --- |
@@ -46,7 +82,10 @@ Drive topics are still pending; merging existing work does not migrate them.
 | M04 (V01/V02) | Import production verifier/tests and network-isolated CI. | Pending. Require full suite, missing/extra/changed/no-op preparation cases, review-scope and input-preservation cases, raw-only production reproduction and exact main CI. |
 | M05 | Reconcile instructions/ledger and all branch contents; verify main and clean checkout. | Pending. Record preceding integration CI, confirm no output backups, preserve current review states. |
 
-Next executable task: finish M01. M00 CI has succeeded. Main still has no production projects; do not infer integration from partially uploaded Git objects.
+The former next task, finishing M01, was superseded by F01 on 20 November.
+At the earlier checkpoint, main had no production projects; that historical
+statement does not describe the fresh pilot's working tree or establish its
+integration. Do not infer old fuel integration from partially uploaded objects.
 
 All eight existing remote branch tips were verified contained in main at
 `b22b5fb72df54e7f1602eac4f44909dbc1051338`; no open PRs remained. Seven historical
@@ -68,7 +107,8 @@ being consolidated. Import the final state rather than replaying obsolete code.
 | projects/TOPIC/review.json | Actual review state and exact hashes |
 | Ignored build/ | Disposable preparation and previews |
 
-Discover posts from specifications. Preserve fuel's 26+23 original receipt entries unchanged and 48 publishable raw
+Discover posts from specifications. The following fuel constraints belong to the
+paused import history: preserve its 26+23 original receipt entries unchanged and 48 publishable raw
 paths, including failed attempts and retrieval dates. Withhold only the exact
 unused TCS response below; all ten selected build sources must remain present.
 These are research evidence, not output backups. Keep the frozen selection,
@@ -79,25 +119,25 @@ Preserve 1080x1350, cream #FAF8EF, navy #1C2D57 accents, black text, DejaVu Sans
 circle-only df logo, approved A/B/C palettes, bold pagination, one descriptive
 block, localized lower-left date, and full literal source URLs in captions.
 
-## Subsequent topic migrations
+## Subsequent topic backlog (paused; choose one fresh rebuild at a time)
 
-These tasks have not been implemented by consolidating existing branches.
-For each topic, first commit an inventory of exact files/hashes/vintages,
-languages/posts, transformations and actual review state. Then add concrete
-children to this ledger before coding: evidence; tables/specs; each decoder or
-transformation; raw-only verification; one complete post per task; offline CI.
+These topics have not been completed by consolidating existing branches.
+Once the user selects the next plot, identify its scope from Drive and research
+its authoritative sources afresh. Add a bounded task to this ledger covering
+evidence, tables, specifications, offline preparation, raw-only verification,
+one complete post, review and exact-commit CI. Do not import old Drive content.
 Do not make branch deletion, Drive delivery or Drive cleanup prerequisites.
 
 | Task | Retained scope |
 | --- | --- |
 | R01 | DK/NO/PL/CZ fuel DE/EN; selected vintages and Norway allocation limitations |
 | R02 | Unemployment comparison DE/EN; definitions, vintages and breaks |
-| R03 | DE/CH/DK/NO unemployment; comparability, coverage and gaps |
+| R03 | DE/CH/DK/NO unemployment; F01 addresses one German 2016–2025 trend plot only; other posts and languages remain unimplemented |
 | R04 | DE/NL/PL income; income/survey year, EUR/PPS |
 | R05 | German vehicle registrations; full/partial years and actual review state |
 | R06 | Retained inflation/ECB; active specs and compatibility users |
 
-After topic inventories, remove one proven-unused compatibility unit per task;
+Any later compatibility cleanup requires its own bounded task;
 retain units with active users and useful behavioral fixtures. Every shared
 change must pass the full suite and reproduce all migrated finals.
 
@@ -113,7 +153,7 @@ change must pass the full suite and reproduce all migrated finals.
   clean checkout. Report remaining topic work honestly; manual cleanup does not
   prevent completion of the consolidation tasks above.
 
-## M01 publication exception and interruption checkpoint
+## M01 publication exception and interruption checkpoint (historical; paused)
 
 Automatic approval review rejected the upload of
 `projects/fuel-prices-de-ch-lu/sources/raw/tcs_prices-256711361e71.html`
@@ -132,8 +172,8 @@ the selected sources. The revised local candidate passed 93 tests, including
 these boundaries, after demonstrating the prior verifier failed the exclusion.
 This change and the evidence have not been committed to main.
 
-The subsequent source transfer was interrupted. Do not claim source imports,
+The subsequent source transfer was interrupted. Do not claim those fuel source imports,
 prepared tables, current posts or production CI are integrated. Read the live
-main tree and verify which content-addressed source objects already exist before
-resuming. Avoid long unbounded upload loops; use bounded calls and checkpoint
+main tree and verify which content-addressed source objects already exist if
+the user explicitly resumes that old import. Avoid long unbounded upload loops; use bounded calls and checkpoint
 verified outcomes. Manual branch deletion and Drive cleanup remain user-owned.

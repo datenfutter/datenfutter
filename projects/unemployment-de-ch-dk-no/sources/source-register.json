@@ -1,0 +1,78 @@
+{
+  "selection": {
+    "countries": [
+      "DE",
+      "CH",
+      "DK",
+      "NO"
+    ],
+    "years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "dimensions": {
+      "freq": "A",
+      "age": "Y15-74",
+      "unit": "PC_ACT",
+      "sex": "T"
+    }
+  },
+  "sources": [
+    {
+      "id": "eurostat-une-rt-a",
+      "publisher": "Eurostat",
+      "title": "Unemployment by sex and age – annual data (une_rt_a)",
+      "short_title": "une_rt_a",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_a/default/table?lang=en",
+      "download_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?lang=en&freq=A&age=Y15-74&unit=PC_ACT&sex=T&geo=DE&geo=CH&geo=DK&geo=NO&sinceTimePeriod=2015&untilTimePeriod=2025",
+      "doi": "https://doi.org/10.2908/UNE_RT_A",
+      "retrieved_at": "2026-11-20T00:42:06.099358+00:00",
+      "updated_at": "2026-11-06T23:00:00+0100",
+      "coverage_start": "2015-01-01",
+      "coverage_end": "2025-12-31",
+      "metric": "Unemployed people aged 15–74 as a percentage of the labour force, both sexes, annual LFS estimates",
+      "unit": "% of labour force",
+      "method": "Decode JSON-stat dimensions by their category indexes. Select DE, CH, DK, NO and 2016–2025; preserve source rates and flags without interpolation or aggregation. Dates YYYY-01-01 are plotting positions for full-year observations, not January measurements.",
+      "raw_file": "raw/20261120T004206Z/une_rt_a.json",
+      "raw_sha256": "c8183a91052d79380afda8fb66e41e0f78b0f92a6ced15d8da6c887ce2de8794",
+      "reuse_note": "Eurostat reuse policy; attribution required. https://ec.europa.eu/eurostat/help/copyright-notice",
+      "limitations": [
+        "Survey estimates, not registered unemployment.",
+        "Source break flags: DK 2016, 2017, 2023; DE 2020. Comparisons across these boundaries require caution.",
+        "2015 is retained in the original response but excluded from this ten-year plot.",
+        "Annual results are not calculated here by averaging monthly rates."
+      ]
+    },
+    {
+      "id": "eurostat-lfs-methods",
+      "publisher": "Eurostat",
+      "title": "LFS main indicators – reference metadata",
+      "short_title": "LFS-Methodik",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/lfsi_esms.htm",
+      "retrieved_at": "2026-11-20T00:43:27.896045+00:00",
+      "method": "Definitions, annual compilation and comparability documentation reviewed on retrieval date.",
+      "metadata_updated": "2026-09-11"
+    }
+  ],
+  "research_links": [
+    {
+      "title": "Definition of unemployment",
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:Unemployment",
+      "checked_at": "2026-11-20T00:43:27.896045+00:00"
+    },
+    {
+      "title": "Eurostat copyright and reuse",
+      "url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+      "checked_at": "2026-11-20T00:43:27.896045+00:00"
+    }
+  ],
+  "editorial_decision": "One German 2016–2025 trend plot. Fresh Eurostat acquisition; Drive used solely to identify the existing topic. No Drive data, specifications, captions, code or images reused."
+}

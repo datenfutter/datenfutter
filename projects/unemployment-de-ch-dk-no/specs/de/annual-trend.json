@@ -1,0 +1,162 @@
+{
+  "schema_version": "0.4",
+  "id": "annual-trend",
+  "language": "de",
+  "as_of": "2026-11-20",
+  "coverage_end": "2025-12-31",
+  "sources_file": "../../sources/source-register.json",
+  "source_ids": [
+    "eurostat-une-rt-a",
+    "eurostat-lfs-methods"
+  ],
+  "logo_file": "../../../../brand/df-circle-white.png",
+  "caption_title": "Erwerbslosigkeit steigt wieder",
+  "caption": [
+    {
+      "text": "In Deutschland, der Schweiz, Dänemark und Norwegen stieg die jährliche Erwerbslosenquote sowohl 2024 als auch 2025. Im Jahr 2025 lag sie bei 3,8 % in Deutschland, 4,9 % in der Schweiz, 6,4 % in Dänemark und 4,5 % in Norwegen.",
+      "source_ids": [
+        "eurostat-une-rt-a"
+      ]
+    },
+    {
+      "text": "Die Grafik zeigt die Jahreswerte von 2016 bis 2025 für 15- bis 74-Jährige, beide Geschlechter zusammen. Die Quote setzt Erwerbslose ins Verhältnis zu den Erwerbspersonen – also Erwerbstätigen und Erwerbslosen. Sie misst nicht die bei Arbeitsämtern registrierte Arbeitslosigkeit.",
+      "source_ids": [
+        "eurostat-une-rt-a",
+        "eurostat-lfs-methods"
+      ]
+    }
+  ],
+  "caption_methods": [
+    {
+      "text": "Eurostat-Datensatz une_rt_a; Auswahl: freq=A, age=Y15-74, unit=PC_ACT, sex=T, geo=DE/CH/DK/NO. Die veröffentlichten Jahresquoten werden unverändert übernommen; sie werden hier weder aus Monatswerten berechnet noch interpoliert.",
+      "source_ids": [
+        "eurostat-une-rt-a"
+      ]
+    },
+    {
+      "text": "Eurostat kennzeichnet Reihenbrüche in Dänemark 2016, 2017 und 2023 sowie in Deutschland 2020. Die Linien sind an diesen Übergängen unterbrochen, alle Jahreswerte bleiben sichtbar. Der dänische Wert 2016 ist bereits der erste Punkt. Veränderungen über einen Reihenbruch hinweg sind nur eingeschränkt vergleichbar. Die Flaggen entsprechen diesem Datenstand; ein pauschaler zusätzlicher Bruch 2021 wird nicht unterstellt.",
+      "source_ids": [
+        "eurostat-une-rt-a"
+      ]
+    },
+    {
+      "text": "Datenabruf: 20. November 2026. Datenstand laut API: 6. November 2026. Letztes vollständiges Berichtsjahr: 2025. Der Originalabruf enthält zusätzlich 2015; dargestellt werden ausschließlich 2016–2025. Auswahl und Darstellung: datenfutter. Eurostat ist für diese Darstellung nicht verantwortlich.",
+      "source_ids": [
+        "eurostat-une-rt-a"
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "kicker": "ARBEITSMARKT · EUROPA",
+      "title": "Erwerbslosigkeit\nsteigt wieder",
+      "subtitle": {
+        "text": "Erwerbslose in % der Erwerbspersonen (15–74 Jahre).\nJahreswerte 2016–2025, beide Geschlechter.",
+        "source_ids": [
+          "eurostat-une-rt-a"
+        ]
+      },
+      "note": {
+        "text": "Reihenbrüche: Dänemark 2016/17/23, Deutschland 2020.\nLinien an den betroffenen Übergängen unterbrochen.",
+        "source_ids": [
+          "eurostat-une-rt-a"
+        ]
+      },
+      "alt_text": {
+        "text": "Liniendiagramm der jährlichen Erwerbslosenquote für 15- bis 74-Jährige in Deutschland, der Schweiz, Dänemark und Norwegen, 2016–2025. In allen vier Ländern steigen die Quoten 2024 und 2025. Die Endwerte 2025 sind Deutschland 3,8 %, Schweiz 4,9 %, Dänemark 6,4 % und Norwegen 4,5 %. Die y-Achse reicht von 0 bis 8 %. Punkte zeigen Jahreswerte. Die gestrichelte Linie kennzeichnet Norwegen. Eurostat-Reihenbrüche unterbrechen die Linien in Dänemark 2017 und 2023 sowie in Deutschland 2020; auch der erste dänische Wert 2016 ist als Reihenbruch markiert. Quelle: Eurostat une_rt_a.",
+        "source_ids": [
+          "eurostat-une-rt-a"
+        ]
+      },
+      "end_label_heading": {
+        "text": "2025",
+        "source_ids": [
+          "eurostat-une-rt-a"
+        ]
+      },
+      "chart": {
+        "type": "line",
+        "start": "2016-01-01",
+        "end": "2025-01-01",
+        "x_label_format": "auto",
+        "decimals": 1,
+        "suffix": "%",
+        "label_mode": "direct",
+        "point_markers": true,
+        "y_limits": [
+          0,
+          8
+        ],
+        "value_ticks": [
+          0,
+          2,
+          4,
+          6,
+          8
+        ],
+        "series": [
+          {
+            "id": "de",
+            "label": "Deutschland",
+            "data_file": "../../data/processed/de.csv",
+            "color_role": "series_1",
+            "linestyle": "-",
+            "break_dates": [
+              "2020-01-01"
+            ],
+            "flags": {
+              "2020-01-01": "b"
+            },
+            "source_ids": [
+              "eurostat-une-rt-a"
+            ]
+          },
+          {
+            "id": "ch",
+            "label": "Schweiz",
+            "data_file": "../../data/processed/ch.csv",
+            "color_role": "series_2",
+            "linestyle": "-",
+            "break_dates": [],
+            "flags": {},
+            "source_ids": [
+              "eurostat-une-rt-a"
+            ]
+          },
+          {
+            "id": "dk",
+            "label": "Dänemark",
+            "data_file": "../../data/processed/dk.csv",
+            "color_role": "series_3",
+            "linestyle": "-",
+            "break_dates": [
+              "2016-01-01",
+              "2017-01-01",
+              "2023-01-01"
+            ],
+            "flags": {
+              "2016-01-01": "b",
+              "2017-01-01": "b",
+              "2023-01-01": "b"
+            },
+            "source_ids": [
+              "eurostat-une-rt-a"
+            ]
+          },
+          {
+            "id": "no",
+            "label": "Norwegen",
+            "data_file": "../../data/processed/no.csv",
+            "color_role": "muted",
+            "linestyle": "--",
+            "break_dates": [],
+            "flags": {},
+            "source_ids": [
+              "eurostat-une-rt-a"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

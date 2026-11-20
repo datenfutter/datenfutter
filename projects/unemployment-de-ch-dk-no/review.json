@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-20T00:46:15.883839+00:00",
+  "status": "internally-reviewed",
+  "user_approval": "not_requested_or_recorded",
+  "social_publication": "not_requested_or_performed",
+  "input_hashes_sha256": {
+    "acquire.py": "e7c86a70e32ba3a1211e4ec9522e102d60273adbdd29e9d28980a400624279e9",
+    "prepare.py": "4e54f5cdd9dc0f01746817bca3a8f8396db6fdf10f3f504cbdd90e4969e592df",
+    "verify.py": "f957778b7a178d69797a590e7dc0cf545e16289ba49e57f5847b985c52f58773",
+    "README.md": "00a7e2fb01568acf741afcad44553881cbb1a5f6317076b3f40f1cc875e6bd8d",
+    "sources/retrievals.jsonl": "c49c0cc2016ca4c265b4dd9f5a4771ec1d6cec7f6eb353de81fd1f80c94c6269",
+    "sources/source-register.json": "dd8c70f6fc3b5f8ec28cfc1de9fdb9eff97ac524963ee2013e2b6c69d294f116",
+    "data/processed/ch.csv": "692decfb17e341610ee5870a679cb22dc67d0dca93b8a6375b198d151ff6a1d6",
+    "data/processed/no.csv": "4c9201b104773404032b216203b356166c364749256c6a7ac3655151532e2d11",
+    "data/processed/unemployment.csv": "e02948e6ec2bcfa54c445e4e333de16fcb912580fd7eb2e9c6190d67b5e46592",
+    "data/processed/dk.csv": "2e0b3462399a9eadc3f351b5cce1382793f69fb794568e571f7f620a3ea22d47",
+    "data/processed/de.csv": "3f8ac306f48b29bb474fbcd52397088da800cc4f329f6e791536825ca0689d49",
+    "data/processed/validation.json": "6c64a7e9c69312723d603bf3bf2081385ae2099560777bbc47ba5cf02d4e99b5",
+    "specs/de/annual-trend.json": "93699c128f29fc9c1f06ab7db1f5e6c24ef8c37ea17eb3718907dda15c8418b5",
+    "sources/raw/20261120T004206Z/une_rt_a.json": "c8183a91052d79380afda8fb66e41e0f78b0f92a6ced15d8da6c887ce2de8794"
+  },
+  "shared_input_hashes_sha256": {
+    "brand/brand.json": "d1ac3b46e5a8b540ebcdb03fd3b1affdf2615fea50877a1beb95951d5c4a5649",
+    "brand/df-circle-white.png": "0fa8f72984c4a35a75d2bf45b18a6bee2a85a8676dbeea35345225e365ccefe4",
+    "brand/palette-c.json": "c2beafe7861a8705a7d23da56e4da0fae7bbfb829a8dd50ce49322b17b56c2e3",
+    "brand/palette-a.json": "4eb91181e8e7a3747b68b7569824cc1618adcebd205a43e5b93e0c2ccbe967b5",
+    "brand/df-circle-white.svg": "b80b01b1e8f05b84258e6d5a7f8e7b95993fb41bc8ea86db61d4d51044d676da",
+    "brand/palette-b.json": "44186f0d46f1ae5d58ff34e1382cbcb63ca80657f36e9f4d49cb67939dfc8a15",
+    "datenfutter/provenance.py": "806335e32d3a4b6983341570888211d56700f9fdaf6ed69b1aabfc27330083bc",
+    "datenfutter/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "datenfutter/projects.py": "a1946acb13a79eea12d2b9263693adc13e91d0e7a92c3d3a52d682b1f4455e05",
+    "datenfutter/__main__.py": "68dbef64728fc2e20193fceb2a9c9582efc1351fb919dcc9e51885a18c742ad0",
+    "datenfutter/editorial.py": "8c7d0e3dad84e86575c8c72fb9066fecc2361104332876728fa937e97969325c",
+    "datenfutter/localization.py": "057353fa0e252fac1e20865e7a81b81b9874f00964d116b74efc0654f9a2aecc",
+    "datenfutter/layout.py": "7726fdd96139791d39bfe4805c6d8285964750ffa72f6f9d17c7424b618ead20",
+    "datenfutter/render.py": "9fbb3bda4d9df203bd08db6665940cf2135db26a8b2148bbd278986d36d85d76",
+    "datenfutter/charts.py": "bc0e145bcc5f54dd696fd209a192795637166b2e8ac6ffade315c2f93173659f",
+    "datenfutter/data.py": "f8d83b3e0cb4f4dcc899482ea2b326c77f03c9c8a1203dcde4b28d6835989b35"
+  },
+  "output_hashes_sha256": {
+    "posts/de/annual-trend/01.svg": "4a02696d4f488683d270039152238a839c064b84bd076f9df39df0d50e952ef1",
+    "posts/de/annual-trend/manifest.json": "d25176466577c7f00c355596739c1495df28bd06031fa81597b2b477c3112a87",
+    "posts/de/annual-trend/alt-text.md": "55bf8f0faaf0b00870fb47c5488df4f1d43dda9ea5b47edddc453655d649c8cc",
+    "posts/de/annual-trend/01.png": "82b2a74236a851a0843d832c77054a8ae5d770df4238479a525df899a4761968",
+    "posts/de/annual-trend/caption.md": "95270693e9d5c2738a3381975655fe80173b70aea02f26dc4d3889a9cb7a767b"
+  },
+  "evidence_review": {
+    "result": "pass",
+    "observations": 40,
+    "checks": [
+      "Values and status flags match original Eurostat response.",
+      "2023 < 2024 < 2025 holds in all four selected countries.",
+      "2025 endpoints and annual definitions checked.",
+      "Break dates match source b flags; no extra 2021 break assumed."
+    ]
+  },
+  "visual_review": {
+    "result": "pass",
+    "sizes_px": [
+      [
+        1080,
+        1350
+      ],
+      [
+        360,
+        450
+      ]
+    ],
+    "items": [
+      "PNG at full and phone width",
+      "complete caption",
+      "complete alt text",
+      "labels/units/period/source/date/logo",
+      "source breaks and direct endpoint labels"
+    ],
+    "notes": "One cream slide, legible labels, no overlap or clipping observed."
+  },
+  "local_checks": {
+    "unit_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "count": 96,
+      "result": "pass"
+    },
+    "project_build": "pass",
+    "project_check": "pass",
+    "layout": {
+      "projects": 1,
+      "current_posts": 1,
+      "result": "pass"
+    },
+    "raw_only_offline_reproduction": {
+      "result": "pass",
+      "derived_files": 6,
+      "output_files": 5,
+      "comparison": "complete file sets and SHA-256 bytes",
+      "network": "Python socket connection methods blocked during preparation/rendering"
+    }
+  },
+  "remote_ci": "Verify exact resulting commit after push; do not infer from local results.",
+  "runtime": {
+    "python": "3.12.14",
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "Pillow": "12.3.0",
+    "pandas": "2.2.3",
+    "openpyxl": "3.1.5"
+  },
+  "shared_code_base_commit": "083ec91685f8f4d3fa0dba5accb93e5089f1bd0f"
+}
